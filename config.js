@@ -1,12 +1,12 @@
 // Cấu hình trang web Bonnievale - sửa file này khi có bản mới hoặc đổi link tải.
 // (Dữ liệu game như quái, lớp, NPC nằm ở data.js, được tạo tự động bằng tools/web_export.sh.)
 window.SITE = {
-  version: "0.3.0",
+  version: "0.3.1",
   released: "2026-10-01",
 
   // Link tải. Để url trống ("") thì nút hiện "Sắp có".
   downloads: [
-    { id: "win", label: "Tải cho PC", note: "Windows 10/11 · 64-bit · file .zip · 107 MB", url: "" },
+    { id: "win", label: "Tải cho PC", note: "Windows 10/11 · 64-bit · file .zip · 70 MB", url: "https://github.com/butastudio/bonnievale/releases/download/v0.3.1/Bonnievale_Tester_0.3.1.zip" },
     { id: "android", label: "Android", note: "Đang làm", url: "" },
     { id: "mac", label: "macOS", note: "Đang làm", url: "" },
   ],
@@ -18,6 +18,14 @@ window.SITE = {
 
   // Tin tức, bản mới nhất ở trên cùng.
   news: [
+    {
+      version: "0.3.1", date: "2026-10-01", title: "Gọn hơn, ghi công tác giả đầy đủ",
+      points: [
+        "Game giờ là một file Bonnievale.exe duy nhất, file tải nhẹ hơn (70 MB).",
+        "Kèm thư mục HINH_ANH_GIAY_PHEP_MO: hình ảnh dùng giấy phép mở cùng tên tác giả và giấy phép của từng gói.",
+        "Nội dung game giống bản 0.3.0.",
+      ],
+    },
     {
       version: "0.3.0", date: "2026-10-01", title: "Cây Cổ Thụ làm lại hoàn toàn, mở đầu có tranh minh họa",
       points: [
