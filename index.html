@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bonnievale</title>
+<meta name="description" content="Bonnievale - game nông trại và phiêu lưu pixel về những chú mèo ở thung lũng Meowmont. Miễn phí, bản thử nghiệm, tiếng Việt đầy đủ.">
+<meta property="og:title" content="Bonnievale - nông trại & phiêu lưu pixel">
+<meta property="og:description" content="Trồng trọt, chăn nuôi sinh vật huyền thoại, leo Cây Cổ Thụ chín tầng và hồi sinh Hoa Đèn Lồng. Tải miễn phí bản thử nghiệm.">
+<meta property="og:image" content="img/og.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#2a1a10">
+<link rel="icon" href="img/icon.png">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<header class="topbar" id="top">
+  <a class="brand" href="#top" aria-label="Bonnievale - lên đầu trang"><img src="img/logo.png" alt="Bonnievale" width="140" height="46"></a>
+  <nav class="menu" id="menu" aria-label="Mục chính">
+    <a href="#gioi-thieu">Giới thiệu</a>
+    <a href="#cot-truyen">Cốt truyện</a>
+    <a href="#lop">Lớp nhân vật</a>
+    <a href="#quai">Quái & Boss</a>
+    <a href="#tin-tuc">Tin tức</a>
+    <a href="cam-nang.html">Cẩm Nang</a>
+  </nav>
+  <a class="btn btn-sm" href="#tai-game">Tải game</a>
+  <button class="burger" id="burger" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-art" role="img" aria-label="Trang trại sinh vật huyền thoại trong Bonnievale: rồng đỏ, phượng hoàng, kỳ lân, khủng long và voi ma mút"></div>
+  <div class="hero-inner">
+    <img class="hero-logo" src="img/logo.png" alt="Bonnievale" width="626" height="206">
+    <p class="hero-tag">Game nông trại và phiêu lưu pixel. Bạn là chú mèo vừa nhận một mảnh đất nhỏ ở Meowmont, đúng sáng Hoa Đèn Lồng rụng cánh hoa cuối cùng.</p>
+    <div class="hero-badges"><span>Miễn phí</span><span>Bản thử nghiệm <b data-v></b></span><span>Tiếng Việt · English</span></div>
+    <div class="dl-row" data-downloads></div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+
+<section class="band" id="gioi-thieu">
+  <div class="wrap">
+    <h2 class="title">Có gì trong bản <span data-v></span></h2>
+    <div class="stats" id="stats"></div>
+
+    <div class="feature">
+      <div class="clip frame"><video src="video/keyart_farm.mp4" poster="video/keyart_farm.jpg" autoplay muted loop playsinline preload="metadata"></video></div>
+      <div class="ftext">
+        <div class="eyebrow">Nông trại</div>
+        <h3>Cuốc, gieo, tưới, rồi nhìn mùa màng lớn lên</h3>
+        <p>38 loại cây theo bốn mùa, vườn cây ăn trái, vòi tưới tự động ba cấp, máy làm hạt giống, chú Mầm tự thu hoạch và phân bón làm từ đồ quái rơi. Mỗi bậc Trồng trọt mở ra những hạt giống hiếm hơn.</p>
+      </div>
+    </div>
+    <div class="feature flip">
+      <div class="clip frame"><video src="video/town_festival.mp4" poster="video/town_festival.jpg" autoplay muted loop playsinline preload="metadata"></video></div>
+      <div class="ftext">
+        <div class="eyebrow">Thị trấn Meowmont</div>
+        <h3>Một thị trấn mèo có tên, có nhà, có lịch trình</h3>
+        <p>35 cư dân đi làm, về nhà và ngồi quán theo giờ. Mỗi người có sở thích quà riêng, tiệm riêng và chuyện riêng cần bạn giúp. Nhà nào trong thị trấn cũng bước vào được.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="clip frame"><video src="video/ranch.mp4" poster="video/ranch.jpg" autoplay muted loop playsinline preload="metadata"></video></div>
+      <div class="ftext">
+        <div class="eyebrow">Trang trại huyền thoại</div>
+        <h3>Nuôi rồng, phượng hoàng, kỳ lân</h3>
+        <p>Trang trại của bạn không chỉ có gà. Chăm sóc sinh vật huyền thoại, nhặt lông phượng hoàng và vảy rồng làm nguyên liệu cho những món đồ quý nhất thung lũng.</p>
+      </div>
+    </div>
+
+    <div class="cards" id="features"></div>
+  </div>
+</section>
+
+<section class="band night" id="cot-truyen">
+  <div class="wrap">
+    <h2 class="title">Khế Ước Đèn Lồng</h2>
+    <p class="lead">Tám bức tranh mở đầu game, kể lại vì sao đất đai Xứ Mèo mỏi mệt và bạn đến đây để làm gì.</p>
+    <div class="story frame" id="story">
+      <div class="story-pic"><img id="story-img" alt="" width="320" height="180"></div>
+      <div class="story-text">
+        <div class="eyebrow" id="story-when"></div>
+        <p id="story-cap"></p>
+        <div class="story-nav">
+          <button class="btn btn-sm ghost" type="button" id="story-prev" aria-label="Tranh trước">←</button>
+          <div class="dots" id="story-dots" role="tablist" aria-label="Chọn tranh"></div>
+          <button class="btn btn-sm ghost" type="button" id="story-next" aria-label="Tranh sau">→</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="lop">
+  <div class="wrap">
+    <h2 class="title">Bốn lớp, mười hai nhánh chuyên sâu</h2>
+    <p class="lead">Chọn lớp ở ngày thứ 7. Thử thách của thầy mở kỹ năng R và T, tới Chiến đấu Lv 10 chọn một nhánh chuyên sâu, và Thần Dược Thức Tỉnh đánh thức kỹ năng ẩn (U).</p>
+    <div class="tabs" role="tablist" id="class-tabs" aria-label="Lớp nhân vật"></div>
+    <div class="klass frame" id="class-panel" role="tabpanel"></div>
+  </div>
+</section>
+
+<section class="band dim" id="quai">
+  <div class="wrap">
+    <h2 class="title">Quái vật &amp; Boss</h2>
+    <p class="lead">Mỗi boss có chiêu riêng và báo trước bằng vạch đỏ, vòng đỏ. Di chuột (hoặc chạm) vào một con để nó cử động.</p>
+    <div class="filters" id="foe-filter" role="group" aria-label="Lọc quái"></div>
+    <div class="bestiary" id="bestiary"></div>
+  </div>
+</section>
+
+<section class="band" id="cu-dan">
+  <div class="wrap">
+    <h2 class="title">Cư dân thung lũng</h2>
+    <div class="villagers" id="villagers"></div>
+  </div>
+</section>
+
+<section class="band dim" id="tin-tuc">
+  <div class="wrap narrow">
+    <h2 class="title">Tin tức &amp; cập nhật</h2>
+    <div id="news"></div>
+  </div>
+</section>
+
+<section class="band night" id="tai-game">
+  <div class="wrap narrow">
+    <h2 class="title">Sẵn sàng về thung lũng?</h2>
+    <div class="dl-row center" data-downloads></div>
+    <div class="install frame">
+      <h3>Cài đặt</h3>
+      <ol>
+        <li>Tải file .zip, bấm chuột phải chọn <b>Extract All</b> (giải nén cả thư mục, đừng chạy thẳng trong file zip).</li>
+        <li>Chạy <b>Bonnievale.exe</b>. Nếu Windows hiện "Windows protected your PC", bấm <b>More info</b> rồi <b>Run anyway</b>. Game chưa được ký số nên Windows cảnh báo, đây là chuyện bình thường với bản thử nghiệm.</li>
+        <li>Đổi sang tiếng Việt: <b>Esc → Settings → Display → Language → Tiếng Việt</b>.</li>
+      </ol>
+      <p class="req"><b>Cấu hình:</b> Windows 10/11 64-bit, card đồ họa hỗ trợ OpenGL 3.3 (hầu hết máy từ 2012 trở lại đây), khoảng 400 MB trống. Chơi bằng bàn phím và chuột, có hỗ trợ tay cầm.</p>
+      <p class="req"><b>Đây là bản thử nghiệm:</b> chắc chắn còn lỗi, file lưu có thể không mang sang bản sau. Cốt truyện hiện dừng ở Đồn Biên Giới Chó.</p>
+      <p class="req"><a href="cam-nang.html">Mở Cẩm Nang người chơi</a> để xem toàn bộ nhiệm vụ, boss, cây trồng và vật phẩm.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="lien-he">
+  <div class="wrap narrow">
+    <h2 class="title">Góp ý &amp; báo lỗi</h2>
+    <p class="lead">Gặp lỗi, bị kẹt nhiệm vụ, hay thấy chỗ nào chán? Kể cho chúng mình biết bạn đang làm gì, chuyện gì xảy ra, và gửi kèm ảnh chụp màn hình (Windows + Shift + S). Khi game bị văng, gửi thêm file log ở <code>%APPDATA%\Godot\app_userdata\Bonnievale\logs\godot.log</code>.</p>
+    <div class="contact" id="contact"></div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <img src="img/logo.png" alt="Bonnievale" width="160" height="53">
+    <p>© 2026 đội ngũ Bonnievale. Bản thử nghiệm miễn phí, làm bằng <a href="https://godotengine.org" rel="noopener">Godot Engine</a>.</p>
+    <details class="credits">
+      <summary>Ghi công tác giả hình ảnh, âm thanh, font</summary>
+      <ul>
+        <li>Tileset, nhân vật, biểu cảm, hiệu ứng: Pipoya (pipoya.itch.io, pipoya.net)</li>
+        <li>[LPC] Monsters - Charles Sanchez (CharlesGabriel), đặt hàng bởi Pierre Vigier; LPC Wild Boar - Benjamin K. Smith, Daniel Eddeland, Lanea Zimmerman (CC-BY-SA 3.0) - opengameart.org</li>
+        <li>Shikashi's Fantasy Icons Pack - Matt Firth (shikashipx), dựa trên game-icons.net (CC BY 4.0); 7Soul1 icons (CC0); Dungeon Crawl Stone Soup tiles (CC0); [LPC] Food - bluecarrot16 và cộng sự (CC-BY-SA 3.0); Aarupix farming tools</li>
+        <li>[LPC] Crops, Flowers/Plants/Fungi/Wood, Farming tilesets, Flower grow cycle - bluecarrot16, Daniel Eddeland, Joshua Taylor, Jetrel, madmarcel (CC-BY-SA 3.0 / CC-BY 3.0)</li>
+        <li>[LPC] Trees Mega-Pack, Conifer Trees, Fruit Trees - bluecarrot16, Joshua Taylor, cynicmusic và các họa sĩ trong CREDITS (CC-BY-SA 3.0)</li>
+        <li>[LPC] Farm, Blacksmith, Ore and Forge, Alchemy - bluecarrot16, TheraHedwig, Ivan Voirol, Sharm, PriorBlue, Jerom (CC-BY 4.0 / CC-BY 3.0 / CC-BY-SA 3.0)</li>
+        <li>LPC Mine Carts and Tracks - Xenodora; [LPC] Cavern and ruin tiles - Reemax và cộng sự; [LPC] Medieval Village Decorations - bluecarrot16 và cộng sự (CC-BY-SA 3.0)</li>
+        <li>Pixel UI Pack, audio packs - Kenney (CC0)</li>
+        <li>Nhạc: Cinnamon Shops; Ninja Adventure - pixel-boy (CC0); pauliuw, RandomMind, cynicmusic, Juhani Junkala (CC0); "Cave Theme" - HaelDB (OGA-BY 3.0)</li>
+        <li>Âm thanh: rubberduck (CC0), Ninja Adventure (CC0), TinyWorlds (CC0)</li>
+        <li>Font: Nunito (OFL), Departure Mono bản Việt hóa (OFL), Be Vietnam Pro (OFL)</li>
+      </ul>
+    </details>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="data.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
