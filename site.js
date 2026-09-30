@@ -39,7 +39,7 @@
     ["trophy_gnawroot", "Cây Cổ Thụ chín tầng", "Một dungeon bên trong thân cây: mỗi tầng một cách di chuyển, bẫy, phòng phục kích, kho báu và một Hộ Vệ hồi sinh mỗi sáng."],
     ["keepers_lantern", "Cốt truyện có chiều sâu", "Bốn chương về Khế Ước Đèn Lồng, chín ký ức của Cây Cổ Thụ và bí mật của Người Giữ Đèn Rosalind."],
     ["moon_sprinkler", "Tự động hóa nông trại", "Vòi tưới ba cấp, thùng nước mưa, máy làm hạt giống và chú Mầm tự thu hoạch để bạn dành thời gian phiêu lưu."],
-    ["hearty_stew", "Nấu ăn, bào chế, rèn", "Hơn 80 công thức ở bếp, vạc thuốc, lò rèn, khung dệt và Vạc Cổ Thụ. Thuốc từ nông trại là thuốc tốt nhất thung lũng."],
+    ["heartwood_tonic", "Nấu ăn, bào chế, rèn", "Hơn 80 công thức ở bếp, vạc thuốc, lò rèn, khung dệt và Vạc Cổ Thụ. Thuốc từ nông trại là thuốc tốt nhất thung lũng."],
     ["cloud_wisp", "Cân Đẩu Vân", "Gom Sợi Mây, bay khắp thung lũng nhanh gấp gần hai lần. Đá Dấu Chân dịch chuyển giữa các vùng."],
     ["return_stone", "Bãi săn boss ẩn", "Lần theo manh mối, mở hang và săn phiên bản thức tỉnh của boss, quay lại mỗi ba ngày."],
     ["sovereign_crown", "230 món thời trang", "Salon đổi màu lông, giống mèo, gương mặt và màu mắt. Mũ, kính, áo quần chỉ để mặc cho đẹp."],
