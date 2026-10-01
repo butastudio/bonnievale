@@ -1,12 +1,12 @@
 // Cấu hình trang web Bonnievale - sửa file này khi có bản mới hoặc đổi link tải.
 // (Dữ liệu game như quái, lớp, NPC nằm ở data.js, được tạo tự động bằng tools/web_export.sh.)
 window.SITE = {
-  version: "0.3.1",
+  version: "0.3.3",
   released: "2026-10-01",
 
   // Link tải. Để url trống ("") thì nút hiện "Sắp có".
   downloads: [
-    { id: "win", label: "Tải cho PC", note: "Windows 10/11 · 64-bit · file .zip · 70 MB", url: "https://github.com/butastudio/bonnievale/releases/download/v0.3.1/Bonnievale_Tester_0.3.1.zip" },
+    { id: "win", label: "Tải cho PC", note: "Windows 10/11 · 64-bit · file .zip · 70 MB", url: "https://github.com/butastudio/bonnievale/releases/download/v0.3.3/Bonnievale_Tester_0.3.3.zip" },
     { id: "android", label: "Android", note: "Đang làm", url: "" },
     { id: "mac", label: "macOS", note: "Đang làm", url: "" },
   ],
@@ -18,6 +18,15 @@ window.SITE = {
 
   // Tin tức, bản mới nhất ở trên cùng.
   news: [
+    {
+      version: "0.3.3", date: "2026-10-01", title: "Màn hình chính mới, tạo nhân vật gọn trong một màn",
+      points: [
+        "Màn hình chính, menu và phần tạo nhân vật làm lại theo kiểu \"đèn lồng đêm\": tranh cốt truyện phía sau những tấm kính chàm viền vàng, tiêu đề bằng font pixel tiếng Việt.",
+        "Tạo nhân vật gọn trong một màn với 5 thẻ, đi theo thứ tự nào cũng được: Danh tính, Ngoại hình, Trang phục, Xuất thân, Nông trại.",
+        "Chọn 1 trong 10 áo, 10 quần, 10 mũ, xem thử ngay trên nhân vật của bạn. Các vùng đất chưa viết xong ghi \"Sắp ra mắt\".",
+        "Cân Đẩu Vân (phím L) giờ hiện rõ dưới chân nhân vật khi cưỡi, có hiệu ứng bồng bềnh và vệt mây bay. Trước đây mây bị vô hình, chỉ thấy chạy nhanh hơn.",
+      ],
+    },
     {
       version: "0.3.1", date: "2026-10-01", title: "Gọn hơn, ghi công tác giả đầy đủ",
       points: [
