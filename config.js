@@ -21,29 +21,21 @@ window.SITE = {
     {
       version: "0.3.3", date: "2026-10-01", title: "Màn hình chính mới, tạo nhân vật gọn trong một màn",
       points: [
-        "Màn hình chính, menu và phần tạo nhân vật làm lại theo kiểu \"đèn lồng đêm\": tranh cốt truyện phía sau những tấm kính chàm viền vàng, tiêu đề bằng font pixel tiếng Việt.",
+        "Màn hình chính và menu làm lại theo kiểu \"đèn lồng đêm\", tranh cốt truyện hiện phía sau.",
         "Tạo nhân vật gọn trong một màn với 5 thẻ, đi theo thứ tự nào cũng được: Danh tính, Ngoại hình, Trang phục, Xuất thân, Nông trại.",
-        "Chọn 1 trong 10 áo, 10 quần, 10 mũ, xem thử ngay trên nhân vật của bạn. Các vùng đất chưa viết xong ghi \"Sắp ra mắt\".",
-        "Cân Đẩu Vân (phím L) giờ hiện rõ dưới chân nhân vật khi cưỡi, có hiệu ứng bồng bềnh và vệt mây bay. Trước đây mây bị vô hình, chỉ thấy chạy nhanh hơn.",
-      ],
-    },
-    {
-      version: "0.3.1", date: "2026-10-01", title: "Gọn hơn, ghi công tác giả đầy đủ",
-      points: [
-        "Game giờ là một file Bonnievale.exe duy nhất, file tải nhẹ hơn (70 MB).",
-        "Kèm thư mục HINH_ANH_GIAY_PHEP_MO: hình ảnh dùng giấy phép mở cùng tên tác giả và giấy phép của từng gói.",
-        "Nội dung game giống bản 0.3.0.",
+        "Chọn 1 trong 10 áo, 10 quần, 10 mũ ngay khi tạo nhân vật, xem thử trực tiếp trên nhân vật của bạn.",
+        "Cân Đẩu Vân (phím L) giờ hiện rõ dưới chân nhân vật khi cưỡi, bồng bềnh và để lại vệt mây.",
       ],
     },
     {
       version: "0.3.0", date: "2026-10-01", title: "Cây Cổ Thụ làm lại hoàn toàn, mở đầu có tranh minh họa",
       points: [
-        "Mở đầu game mới: 8 cảnh có tranh minh họa kể lại cốt truyện (Enter để sang, Esc để bỏ qua).",
-        "Cây Cổ Thụ (lối vào là cái hốc dưới gốc cây khổng lồ, phía bắc Rừng Thì Thầm): 9 tầng và Ngọn Cây, mỗi tầng một cách di chuyển riêng, đom đóm dẫn đường, Thang Giỏ, trại căn cứ, phòng phục kích, kho báu, trang ghi chép của Rosalind và nhiều nhiệm vụ ẩn.",
+        "Mở đầu game mới: 8 cảnh có tranh minh họa kể lại cốt truyện.",
+        "Cây Cổ Thụ 9 tầng và Ngọn Cây: mỗi tầng một cách di chuyển riêng, đom đóm dẫn đường, Thang Giỏ, trại căn cứ, phòng phục kích, kho báu và nhiều nhiệm vụ ẩn.",
         "Hộ Vệ mỗi tầng rất khó, hồi sinh mỗi sáng, mỗi lần hạ rơi 5 hạt giống và đồ quý; 10% rơi bùa riêng.",
         "Viên Đá Khứ Hồi (F) đưa bạn về nông trại ngay. Nhiệm vụ Chín Vụ Mùa mở kỹ năng ẩn (phím U).",
         "Nghề nông và bào chế có bậc, máy nông trại mới, Cân Đẩu Vân (phím L), vứt đồ trong túi (I).",
-        "Đống lửa trại hồi đầy máu, mana và thể lực. Nên bắt đầu game mới để thấy đủ nội dung.",
+        "Đống lửa trại hồi đầy máu, mana và thể lực.",
       ],
     },
     {
@@ -53,14 +45,11 @@ window.SITE = {
         "Mở rộng túi đồ (24 lên 40 ô) và rương (12 lên 36 ô).",
         "Nhà nông trại làm lại cả trong lẫn ngoài; mọi ngôi nhà trong thị trấn đều vào được.",
         "Tiệm mới Purrfect Salon: đổi màu lông, kiểu lông, hoa văn, dáng người. Ngồi được lên ghế.",
-        "Hiệu ứng kỹ năng, đạn bay và vòng cảnh báo đòn của boss dùng hình ảnh mới.",
       ],
     },
     {
-      version: "0.2.0", date: "2026-09-30", title: "Nhạc, font mới, 12 nhánh chuyên sâu và bãi săn boss",
+      version: "0.2.0", date: "2026-09-30", title: "12 nhánh chuyên sâu và bãi săn boss",
       points: [
-        "Font chữ mới đọc tiếng Việt rõ hơn, nhạc nền từng vùng, nhạc chiến đấu, tiếng quái.",
-        "Hình ảnh mới cho cây trồng, cây cối, vật phẩm, quái, boss, trạm chế tạo và hầm mỏ.",
         "Chiến đấu lên tới Lv 20. Ở Lv 10 chọn 1 trong 3 nhánh chuyên sâu, mỗi nhánh có vũ khí, đặc tính và 4 kỹ năng riêng.",
         "Hai bãi săn mới cho Lv 12-16: Hầm Mộ Chìm và Tổ Ong Gai Góc, mở bằng chuỗi manh mối ẩn.",
         "Bốn nhiệm vụ tìm mèo con bị lạc, bản đồ vùng vẽ lại có tên và cấp độ đề nghị.",
