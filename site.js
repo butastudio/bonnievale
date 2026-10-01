@@ -36,14 +36,12 @@
 
   // Feature cards
   const F = [
-    ["trophy_gnawroot", "Cây Cổ Thụ chín tầng", "Một dungeon bên trong thân cây: mỗi tầng một cách di chuyển, bẫy, phòng phục kích, kho báu và một Hộ Vệ hồi sinh mỗi sáng."],
-    ["keepers_lantern", "Cốt truyện có chiều sâu", "Bốn chương về Khế Ước Đèn Lồng, chín ký ức của Cây Cổ Thụ và bí mật của Người Giữ Đèn Rosalind."],
     ["moon_sprinkler", "Tự động hóa nông trại", "Vòi tưới ba cấp, thùng nước mưa, máy làm hạt giống và chú Mầm tự thu hoạch để bạn dành thời gian phiêu lưu."],
     ["heartwood_tonic", "Nấu ăn, bào chế, rèn", "Hơn 80 công thức ở bếp, vạc thuốc, lò rèn, khung dệt và Vạc Cổ Thụ. Thuốc từ nông trại là thuốc tốt nhất thung lũng."],
-    ["cloud_wisp", "Cân Đẩu Vân", "Gom Sợi Mây, bay khắp thung lũng nhanh gấp gần hai lần. Đá Dấu Chân dịch chuyển giữa các vùng."],
-    ["return_stone", "Bãi săn boss ẩn", "Lần theo manh mối, mở hang và săn phiên bản thức tỉnh của boss, quay lại mỗi ba ngày."],
-    ["sovereign_crown", "230 món thời trang", "Salon đổi màu lông, giống mèo, gương mặt và màu mắt. Mũ, kính, áo quần chỉ để mặc cho đẹp."],
-    ["fishing_rod", "Câu cá, đào mỏ, hái lượm", "Nghề nào cũng có cấp và thầy dạy. Lên Bậc Thầy để trồng được hạt giống Cổ Thụ hiếm nhất."],
+    ["fishing_rod", "Câu cá, đào mỏ, hái lượm", "Mỗi nghề có cấp và thầy dạy riêng. Lên Bậc Thầy Trồng trọt mới gieo được hạt giống Cổ Thụ."],
+    ["cloud_wisp", "Cân Đẩu Vân", "Gom Sợi Mây, cưỡi mây bay khắp thung lũng nhanh gần gấp đôi. Đá Dấu Chân dịch chuyển giữa các vùng."],
+    ["keepers_lantern", "Cốt truyện có chiều sâu", "Bốn chương về Khế Ước Đèn Lồng, chín ký ức của Cây Cổ Thụ và bí mật của Người Giữ Đèn Rosalind."],
+    ["sovereign_crown", "230 món thời trang", "Salon đổi màu lông, giống mèo, gương mặt và màu mắt. 10 áo, 10 quần, 10 mũ để chọn ngay khi tạo nhân vật."],
   ];
   $("#features").innerHTML = F.map(([k, t, d]) => `<div class="card frame">${icon(k) ? `<img src="${icon(k)}" alt="" width="48" height="48">` : ""}<h4>${t}</h4><p>${d}</p></div>`).join("");
 
@@ -77,14 +75,51 @@
     const k = classes[i]; if (!k) return;
     $$("button", tabs).forEach((b, j) => { b.setAttribute("aria-selected", String(j === i)); b.classList.toggle("ghost", j !== i); });
     panel.setAttribute("aria-labelledby", "tab-" + k.id);
-    panel.innerHTML = `<div><div class="k-head">${k.weapon ? `<img src="${k.weapon}" alt="">` : ""}<div><div class="eyebrow">Thầy: ${esc(k.master)}</div><h3>${esc(k.name)}</h3></div></div>
+    panel.innerHTML = `<div class="k-clip"><video src="video/class_${k.id}.mp4" poster="video/class_${k.id}.jpg" autoplay muted loop playsinline preload="metadata" aria-label="${esc(k.name)} ra chiêu trong game"></video>
+      <div><div class="k-head">${k.weapon ? `<img src="${k.weapon}" alt="">` : ""}<div><div class="eyebrow">Thầy: ${esc(k.master)}</div><h3>${esc(k.name)}</h3></div></div>
       <p>${esc(k.desc)}</p>${k.passive ? `<p class="meta"><b>Nội tại:</b> ${esc(k.passive)}</p>` : ""}
-      <p class="meta"><b>Mạnh với:</b> ${esc(short(k.good))}</p><p class="meta"><b>Yếu với:</b> ${esc(short(k.bad))}</p></div>
-      <div class="skills">${k.skills.map(s => `<div class="skill${s.hidden ? " hidden" : ""}"><span class="key">${esc(s.key)}</span><div><b>${esc(s.name)}</b>${s.hidden ? ' <small class="eyebrow">kỹ năng ẩn</small>' : ""}<p>${esc(s.desc)}</p></div></div>`).join("")}</div>
+      <p class="meta"><b>Mạnh với:</b> ${esc(short(k.good))}</p><p class="meta"><b>Yếu với:</b> ${esc(short(k.bad))}</p></div></div>
+      <div class="skills two">${k.skills.map(s => `<div class="skill${s.hidden ? " hidden" : ""}"><span class="key">${esc(s.key)}</span><div><b>${esc(s.name)}</b>${s.hidden ? ' <small class="eyebrow">kỹ năng ẩn</small>' : ""}<p>${esc(s.desc)}</p></div></div>`).join("")}</div>
       <div class="subs">${k.subs.map(s => `<div class="sub"><small>Nhánh chuyên sâu</small><b>${esc(s.name)}</b><p>${esc(s.desc)}</p></div>`).join("")}</div>`;
   }
   tabs.onclick = e => { const b = e.target.closest("button"); if (b) showClass(+b.dataset.i); };
   showClass(0);
+
+  // The Elder Heartwood: nine rungs up the trunk, one floor shown at a time
+  const foeById = {}; (B.foes || []).forEach(f => foeById[f.id] = f);
+  const floors = B.floors || [];
+  const trunk = $("#trunk"), fview = $("#floor-view");
+  const shortName = n => String(n).split(": ").pop();
+  trunk.innerHTML = floors.map((f, i) => `<button class="rung" type="button" role="tab" id="rung-${f.n}" aria-controls="floor-view" data-i="${i}"><b>${f.n}</b><span>${esc(shortName(f.name))}</span></button>`).join("");
+  const LEGEND = [["#7fe05a", "lối di chuyển"], ["#ff4a3a", "Hộ Vệ"], ["#ffd24a", "rương"], ["#ff9a3a", "đống lửa"], ["#6fd8ff", "Thang Giỏ"], ["#ffffff", "trang giấy"]];
+  function showFloor(i) {
+    const f = floors[i]; if (!f) return;
+    $$(".rung", trunk).forEach((b, j) => b.setAttribute("aria-selected", String(j === i)));
+    fview.setAttribute("aria-labelledby", "rung-" + f.n);
+    const g = foeById[f.guardian] || {};
+    const s = g.h ? scale(g.h) : 1;
+    fview.innerHTML = `<div class="fv-map">${f.map ? `<img src="${f.map}" alt="Bản đồ ${esc(f.name)}" width="312" height="276">` : ""}
+        <small>${LEGEND.map(([c, l]) => `<span class="lg" style="background:${c}"></span>${l}`).join("")}</small></div>
+      <div><div class="fv-head"><div class="eyebrow">Tầng ${f.n} / 9</div><h3>${esc(shortName(f.name))}</h3></div>
+        <div class="fv-sign">${esc(f.sign)}</div>
+        <div class="guardian"><div class="arena"><span class="ring"></span>${g.img ? `<div class="sprite" style="--w:${g.w};--h:${g.h};--s:${s};background-image:url(${g.img})" role="img" aria-label="${esc(g.name)}"></div>` : ""}</div>
+          <div><div class="g-tag">Hộ Vệ</div><h4>${esc(g.name || "")}</h4><div class="st">HP ${g.hp || "?"} · Công ${g.atk || "?"}${g.weak ? " · Yếu " + esc(g.weak) : ""}</div>
+          ${(g.moves || []).length ? `<div class="chips">${g.moves.slice(0, 4).map(m => `<span>${esc(m)}</span>`).join("")}</div>` : ""}</div></div>
+        <div class="fv-foes"><b>Quái trên tầng:</b> ${esc((f.foes || []).join(", "))}</div></div>`;
+  }
+  trunk.onclick = e => { const b = e.target.closest(".rung"); if (b) showFloor(+b.dataset.i); };
+  showFloor(0);
+
+  // Boss spotlight: three real fights from the game
+  const SPOT = [["enemy.hunt.old_tusk", "boss_tusk"], ["enemy.hunt.mistmother", "boss_mist"], ["enemy.boss.bone_sovereign", "boss_sovereign"]];
+  $("#bosses").innerHTML = SPOT.map(([id, v]) => {
+    const b = foeById[id]; if (!b) return "";
+    return `<article class="bcard"><video src="video/${v}.mp4" poster="video/${v}.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Trận đánh ${esc(b.name)}"></video>
+      <div class="bbody"><div class="bhead"><h4>${esc(b.name)}</h4><span>HP ${b.hp}</span></div><div class="bwhere">${esc(b.where)}${b.weak ? " · yếu " + esc(b.weak) : ""}</div>
+      <div class="hpbar" role="img" aria-label="Các mốc giai đoạn theo máu">${(b.phases || []).map(p => `<i style="left:${p.at}%" data-at="${p.at}%"></i>`).join("")}</div>
+      <ul class="bphase">${(b.phases || []).map(p => `<li><b>${p.at}%</b> ${esc(p.line || p.what)}</li>`).join("")}</ul>
+      <div class="chips">${(b.moves || []).slice(0, 5).map(m => `<span>${esc(m)}</span>`).join("")}</div></div></article>`;
+  }).join("");
 
   // Bestiary
   const foes = B.foes || [];
