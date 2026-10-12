@@ -10,7 +10,7 @@ Cập nhật 2026-10-12 ~15:50.
 
 ## Trang web
 - Kho: `D:\Cat Valley\bonnievale-web` (GitHub butastudio/bonnievale, nhánh main, GitHub Pages). README.md có cách làm.
-- Đang chạy: **http://bonnievale.world** (chủ game đồng ý push + bật tên miền 15:0x; CNAME đã push). Link cũ
+- Đang chạy: **https://bonnievale.world** (HTTPS bật, chứng chỉ duyệt sau khi gắn lại tên miền ~16:00) (chủ game đồng ý push + bật tên miền 15:0x; CNAME đã push). Link cũ
   butastudio.github.io/bonnievale tự chuyển sang. www → CNAME butastudio.github.io (DNS đúng).
 - Xem cục bộ: launch.json "bonnievale-web" (node `.claude/serve_book.js`, cổng 8765) trong `D:\Claude Folder`.
 
@@ -21,13 +21,8 @@ Cập nhật 2026-10-12 ~15:50.
 - edb6d2d yêu cầu máy (4 GB RAM, ~500 MB, Internet)
 - Khi có "đồng ý": `cd "D:/Cat Valley/bonnievale-web" && git push`, chờ Pages build, kiểm trang.
 
-## HTTPS (đã nằm trong lần đồng ý bật tên miền)
-- Chứng chỉ GitHub chưa cấp (cert null sau ~40 phút). Kiểm:
-  `"/c/Program Files/GitHub CLI/gh.exe" api repos/butastudio/bonnievale/pages --jq '{https_enforced, cert: .https_certificate.state}'`
-- Có chứng chỉ thì bật: `gh api -X PUT repos/butastudio/bonnievale/pages -F https_enforced=true` (rỗng = thành công).
-- Vẫn không có: gỡ rồi gắn lại tên miền để GitHub cấp lại:
-  `gh api -X PUT repos/butastudio/bonnievale/pages -f cname=` rồi `... -f cname=bonnievale.world`, chờ 15-60 phút.
-- Sau khi bật, kiểm `https://bonnievale.world`, `https://www.bonnievale.world`, link cũ; báo Leader + chủ game.
+## HTTPS
+- XONG: Enforce HTTPS bật; https gốc, www, http và link cũ đều về https://bonnievale.world.
 
 ## Cẩm Nang
 - Dựng: trong `D:\Cat Valley\bonnievale-online`: `godot --headless --audio-driver Dummy --path . res://tools/GuideBook.tscn`,
