@@ -1,66 +1,18 @@
-// Cấu hình trang web Bonnievale - sửa file này khi có bản mới hoặc đổi link tải.
-// (Dữ liệu game như quái, lớp, NPC nằm ở data.js, được tạo tự động bằng tools/web_export.sh.)
+// Cấu hình trang web Bonnievale Online - sửa file này khi có bản mới, link Discord, email liên hệ.
 window.SITE = {
-  version: "0.3.3",
-  released: "2026-10-01",
+  // Bản tester hiện tại. Để downloadUrl rỗng ("") thì nút tải hiện "Sắp mở".
+  version: "",
+  released: "",
+  downloadUrl: "",
+  downloadSize: "",
 
-  // Link tải. Để url trống ("") thì nút hiện "Sắp có".
-  downloads: [
-    { id: "win", label: "Tải cho PC", note: "Windows 10/11 · 64-bit · file .zip · 70 MB", url: "https://github.com/butastudio/bonnievale/releases/download/v0.3.3/Bonnievale_Tester_0.3.3.zip" },
-    { id: "android", label: "Android", note: "Đang làm", url: "" },
-    { id: "mac", label: "macOS", note: "Đang làm", url: "" },
-  ],
+  // Link mời Discord của chủ game. Rỗng thì nút Join Discord ẩn.
+  discordUrl: "",
 
-  // Liên hệ. Để trống thì mục đó không hiện.
-  email: "",
-  discord: "",
-  facebook: "",
+  // Email nhận câu hỏi về dữ liệu cá nhân (trang Quyền riêng tư). Rỗng thì trang ghi "qua Discord".
+  contactEmail: "",
 
-  // Tin tức, bản mới nhất ở trên cùng.
-  news: [
-    {
-      version: "0.3.3", date: "2026-10-01", title: "Màn hình chính mới, tạo nhân vật gọn trong một màn",
-      points: [
-        "Màn hình chính và menu làm lại theo kiểu \"đèn lồng đêm\", tranh cốt truyện hiện phía sau.",
-        "Tạo nhân vật gọn trong một màn với 5 thẻ, đi theo thứ tự nào cũng được: Danh tính, Ngoại hình, Trang phục, Xuất thân, Nông trại.",
-        "Chọn 1 trong 10 áo, 10 quần, 10 mũ ngay khi tạo nhân vật, xem thử trực tiếp trên nhân vật của bạn.",
-        "Cân Đẩu Vân (phím L) giờ hiện rõ dưới chân nhân vật khi cưỡi, bồng bềnh và để lại vệt mây.",
-      ],
-    },
-    {
-      version: "0.3.0", date: "2026-10-01", title: "Cây Cổ Thụ làm lại hoàn toàn, mở đầu có tranh minh họa",
-      points: [
-        "Mở đầu game mới: 8 cảnh có tranh minh họa kể lại cốt truyện.",
-        "Cây Cổ Thụ 9 tầng và Ngọn Cây: mỗi tầng một cách di chuyển riêng, đom đóm dẫn đường, Thang Giỏ, trại căn cứ, phòng phục kích, kho báu và nhiều nhiệm vụ ẩn.",
-        "Hộ Vệ mỗi tầng rất khó, hồi sinh mỗi sáng, mỗi lần hạ rơi 5 hạt giống và đồ quý; 10% rơi bùa riêng.",
-        "Viên Đá Khứ Hồi (F) đưa bạn về nông trại ngay. Nhiệm vụ Chín Vụ Mùa mở kỹ năng ẩn (phím U).",
-        "Nghề nông và bào chế có bậc, máy nông trại mới, Cân Đẩu Vân (phím L), vứt đồ trong túi (I).",
-        "Đống lửa trại hồi đầy máu, mana và thể lực.",
-      ],
-    },
-    {
-      version: "0.2.1", date: "2026-09-30", title: "Bảng thông tin vật phẩm, nhà nào cũng vào được",
-      points: [
-        "Rê chuột lên bất kỳ món đồ nào để xem công dụng, chỉ số, độ bền, nơi kiếm và giá bán.",
-        "Mở rộng túi đồ (24 lên 40 ô) và rương (12 lên 36 ô).",
-        "Nhà nông trại làm lại cả trong lẫn ngoài; mọi ngôi nhà trong thị trấn đều vào được.",
-        "Tiệm mới Purrfect Salon: đổi màu lông, kiểu lông, hoa văn, dáng người. Ngồi được lên ghế.",
-      ],
-    },
-    {
-      version: "0.2.0", date: "2026-09-30", title: "12 nhánh chuyên sâu và bãi săn boss",
-      points: [
-        "Chiến đấu lên tới Lv 20. Ở Lv 10 chọn 1 trong 3 nhánh chuyên sâu, mỗi nhánh có vũ khí, đặc tính và 4 kỹ năng riêng.",
-        "Hai bãi săn mới cho Lv 12-16: Hầm Mộ Chìm và Tổ Ong Gai Góc, mở bằng chuỗi manh mối ẩn.",
-        "Bốn nhiệm vụ tìm mèo con bị lạc, bản đồ vùng vẽ lại có tên và cấp độ đề nghị.",
-      ],
-    },
-    {
-      version: "0.1.0", date: "2026-09-29", title: "Bản thử nghiệm đầu tiên",
-      points: [
-        "Toàn bộ cốt truyện Xứ Mèo \"Khế Ước Đèn Lồng\": 4 chương, khoảng 20-25 ngày trong game.",
-        "Nông trại với tưới tự động, vườn cây ăn trái, chế tạo, câu cá, đào mỏ, 4 lớp chiến đấu và các boss đầu tiên.",
-      ],
-    },
-  ],
+  // Ghi chú phiên bản, bản mới nhất ở trên cùng (giọng ấm, ngắn, ghi điều người chơi thấy).
+  // { version, date, intro, fixed: [], changed: [], todo: [] }
+  news: [],
 };
