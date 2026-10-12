@@ -42,6 +42,58 @@ h = h.replace(/<p class="lede">Lộ trình gợi ý cho người chơi tập tru
 h = h.replace(/<p class="lede">Năm vương quốc, một loài hoa phát sáng[^<]*<\/p>/,
   '<p class="lede">Năm vương quốc và một Khế Ước cổ. Đây là đoạn mở đầu mà mọi người chơi đều thấy; phần còn lại của câu chuyện mở dần theo nhiệm vụ trong game.</p>');
 
+// --- M51: NV4's online-rules fixes (docs/handoff/INBOX/NV7.md) ----------------------------------
+let fixed = 0;
+const li = (start, html) => { // replace the whole <li> that starts with `start`
+  const i = h.indexOf("<li>" + start); if (i < 0) { console.warn("M51: not found:", start); return; }
+  const j = h.indexOf("</li>", i); h = h.slice(0, i) + "<li>" + html + "</li>" + h.slice(j + 5); fixed++;
+};
+const rep = (a, b) => { if (!h.includes(a)) { console.warn("M51: not found:", a.slice(0, 60)); return; } h = h.replace(a, b); fixed++; };
+// V. Maps and hunting grounds
+rep('vỡ khi hạ <b class="foe">Thủ lĩnh cướp Gristle</b>.</li>', 'vỡ khi hạ <b class="foe">Thủ lĩnh cướp Gristle</b>. Từ phía Xứ Chó, rào chặn lối về tây: đi xe rễ ở bến, hoặc qua Cầu Máng sau chương 5.</li>');
+rep("Sau đó boss trở lại mỗi 3 ngày. Bảng Thợ Săn trong game cho biết boss đã hồi sinh chưa.",
+  "Sau đó boss thức tỉnh là boss chung của cả kênh: tổ 1-4 người cùng đánh, máu boss tăng theo số người. Bạn hạ nó xong thì 3 giờ thật sau nó dậy lại; boss gốc trong hang trở lại sau 3 ngày lịch (khoảng 36 giờ thật). Bảng Thợ Săn cho biết còn bao lâu.");
+// VI. The Elder Heartwood
+li("<b>Chiến lợi phẩm của Hộ Vệ</b>", "<b>Hộ Vệ luôn có mặt mỗi lần bạn vào đấu trường.</b> Lần hạ đầu tiên trong mỗi ngày lịch mới có chiến lợi phẩm và xu (ngày lịch qua lúc 6:00 và 18:00 giờ Việt Nam). Hạ lại trong cùng ngày là đánh giúp bạn bè: 1/5 kinh nghiệm, không đồ, không xu. Phong ấn đã tan thì mở mãi.</li>\n  <li><b>Chiến lợi phẩm của Hộ Vệ</b> (tăng theo tầng): <b>2 hạt giống</b> của tầng (100%), thuốc của tầng (70%), Đá Tia Lửa (15%), xu (38-76 ở tầng 1 tới 185-370 ở tầng 9), <b>chiến lợi phẩm riêng 10%</b>, Viên Đá Khứ Hồi 25% (tầng 4+), Vảy Rồng 8% (tầng 7+).");
+li("<b>Độ khó Hộ Vệ:</b>", "<b>Độ khó Hộ Vệ:</b> khi đánh một mình, máu khoảng 6.700 (tầng 1) tới 38.700 (tầng 9), xem thẻ từng tầng; đánh theo tổ thì máu tăng theo số người. Sát thương 20 tới 44, gần như không bị đẩy lùi. Mang thuốc, né vùng báo trước và đánh lúc nó hồi chiêu.");
+// IX. Bosses
+rep("tự hồi máu (dồn sát thương để cắt).</li>", "tự hồi máu (dồn sát thương để cắt). Khi khiên lính còn, đòn của bạn chỉ còn 1/4 sức: luôn giết lính trước. Boss tầng và boss săn đánh được theo tổ 1-4 người; máu boss tăng theo số người.</li>");
+// XI. Farm (crops grow on real time)
+{ const i = h.indexOf("<li><b>Tưới</b>"); const j = h.indexOf("</li>", i);
+  if (i > 0) { h = h.slice(0, i) + "<li><b>Tưới</b> bằng Bình tưới: đất giữ ẩm 24 giờ thật. Ngày trong game qua hai lần mỗi ngày thật, lúc 6:00 và 18:00 giờ Việt Nam; mỗi lần qua ngày, cây trên đất ẩm lớn một giai đoạn. Đất khô hay trái mùa thì cây đứng yên, không bao giờ chết. Trời mưa tự tưới ngoài trời. Bình hết nước → đứng cạnh nước (sông, giếng, ao) và dùng để đổ đầy.</li>" + h.slice(j + 5); fixed++; }
+  else console.warn("M51: not found: Tưới"); }
+rep("tiền về lúc 6:00 sáng hôm sau.</li>", "tiền về ở lần qua ngày kế tiếp (6:00 hoặc 18:00 giờ Việt Nam).</li>");
+rep("tưới lúc <b>6:00 mỗi sáng</b> các ô đã cuốc trong tầm:", "giữ ẩm các ô đã cuốc trong tầm ở <b>mỗi lần qua ngày</b>:");
+rep("sáng hôm sau ra hạt giống.</li>", "tới lần qua ngày kế tiếp ra 1-3 hạt giống.</li>");
+rep("mỗi sáng một chú Mầm tự thu hoạch", "mỗi lần qua ngày, một chú Mầm tự thu hoạch");
+// XIII. Classes
+li("<b>Chọn lớp</b>", "<b>Chọn lớp</b> từ Lv1: gặp Rowan ở Hội Phiêu Lưu (Meowmont) hoặc các thầy ở Sảnh Huấn Luyện (Barkridge). Lớp chọn vĩnh viễn, nên đọc cả bốn lớp trước.");
+rep("Mỗi ngày có thể luyện tập với thầy một lần.", "Mỗi ngày lịch (12 giờ thật) luyện với thầy được một lần.");
+li("<b>Nhánh Chuyên Sâu:</b>", "<b>Nhánh Chuyên Sâu:</b> từ Lv 10, người trao nhánh mở Thử Thách Nhánh, một sân riêng. Mỗi nhánh thử tới 2 phút với đủ bộ chiêu; đủ 30 giây là tính đã thử. Thử đủ cả ba nhánh rồi mới chọn được 1 (vĩnh viễn). Người trao nhánh: Chiến binh, Đại Sư Ironjaw (Barkridge); Cung thủ, Đại Sư Fenna (Meowmont); Pháp sư và Sát thủ, Sứ giả Bracken và Inkling ở Hội Chợ Quả Sồi. Nhánh cho vũ khí riêng, đặc tính luôn bật, 4 kỹ năng (Z B H Y ở Lv 10/12/14/16) và 2 nội tại (Lv 11/15).</li>\n<li><b>Sách Kỹ Năng (O):</b> mỗi kỹ năng là một trang. Từ Lv2, mỗi cấp cho 2 điểm để nâng trang.");
+
+// Generated from data (tools/guide_export.gd in the online tree; reported to the Dev team to fix at the source):
+// the "Xuất hiện" line of every boss card and the Guardian line of every Heartwood floor card.
+let cards = 0;
+h = h.replace(/<article class="entry boss[^>]*id="b-([^"]+)"[\s\S]*?<\/article>/g, (art, id) => {
+  return art.replace(/(<b>Xuất hiện:<\/b> )([^<]*)/, (m, pre, line) => {
+    const dog = id.startsWith("enemy-dog-boss"), hunt = id.startsWith("enemy-hunt");
+    const guardian = line.includes("Phong Ấn Nhựa") && line.includes("hồi sinh mỗi sáng");
+    let s = line
+      .replace(/cần mở khóa trước \(hunt\.[^)]*\)/, "mở bằng chuỗi nhiệm vụ ẩn của bãi săn")
+      .replace(/cần mở khóa trước \([^)]*\)/, "cần mở khóa trước")
+      .replace(/, quay lại sau \d+ ngày/, "");
+    if (dog) s = s.replace("hạ nó để mở Phong Ấn Nhựa lên tầng tiếp", "hạ nó để mở tầng dưới của Giếng Sâu");
+    if (guardian) s = s.replace("hồi sinh mỗi sáng", "có mặt mỗi lần vào phòng; lần hạ đầu mỗi ngày lịch mới có đồ");
+    else if (hunt) s = s.replace(/hồi sinh (mỗi sáng|sau \d+ ngày)/, "boss chung, dậy lại 3 giờ thật sau khi bạn hạ");
+    else s = s.replace(/hồi sinh sau (\d+) ngày/, "trở lại sau $1 ngày lịch").replace("hồi sinh mỗi sáng", "trở lại sau 1 ngày lịch");
+    cards++;
+    return pre + s;
+  });
+});
+const floorLines = (h.match(/ · hồi sinh sau 3 ngày · /g) || []).length;
+h = h.replace(/ · hồi sinh sau 3 ngày · /g, " · có mặt mỗi lần vào phòng · ");
+console.log(`M51: ${fixed} text fixes, ${cards} boss cards, ${floorLines} floor Guardian lines`);
+
 const out = path.join(__dirname, "..", "cam-nang.html");
 fs.writeFileSync(out, h);
 const left = (h.match(/<article class="entry/g) || []).length;
