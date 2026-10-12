@@ -18,9 +18,9 @@ Cập nhật 2026-10-12 ~15:50.
 - 2026-10-12: chủ game "đồng ý" → đẩy mã mời, M60 đầu trang tĩnh, xóa nhãn ảnh nền, yêu cầu máy (01038aa, Pages built, trang kiểm OK).
 - 2026-10-12: đẩy khung xem lớn (50d3765).
 
-## Đang giữ, CHƯA push
-- c06f80d Cẩm Nang: viết lại 5 đoạn mở đầu Cốt truyện theo canon (Leader đã duyệt).
-  Leader: push chung với lần phát 0.4.0, vẫn cần chủ game tự gõ "đồng ý" trong phiên NV7.
+- 2026-10-12: chủ game "đồng ý" → đẩy bản sửa Cốt truyện (c06f80d), không chờ 0.4.0.
+
+## Đang chờ
 - Chờ NV4 (M74) trả lời 5 chỗ lệch truyện trong dữ liệu game; Leader sẽ chuyển lại.
 
 ## HTTPS
