@@ -1,6 +1,6 @@
-@font-face { font-family: "Departure Viet"; src: url(fonts/departure-viet.otf) format("opentype"); font-display: swap; }
-@font-face { font-family: "Be Vietnam Pro"; src: url(fonts/bevietnam-500.ttf) format("truetype"); font-weight: 500; font-display: swap; }
-@font-face { font-family: "Be Vietnam Pro"; src: url(fonts/bevietnam-600.ttf) format("truetype"); font-weight: 600 800; font-display: swap; }
+@font-face { font-family: "Departure Viet"; src: url(fonts/departure-viet.otf) format("opentype"); font-display: optional; }
+@font-face { font-family: "Be Vietnam Pro"; src: url(fonts/bevietnam-500.ttf) format("truetype"); font-weight: 500; font-display: optional; }
+@font-face { font-family: "Be Vietnam Pro"; src: url(fonts/bevietnam-600.ttf) format("truetype"); font-weight: 600 800; font-display: optional; }
 
 /* Layout: the new carved-wood logo sets the tone - warm wood frames on parchment by day,
    a lantern-lit night band for downloading; every picture is a real 1x capture from the game. */
@@ -334,3 +334,13 @@ body { font-size: 17.5px; }
 @media (max-width: 1100px) { .menu { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: #2a1a10; padding: 8px 12px 14px; box-shadow: 0 4px 0 var(--rim-lo); } .menu.open { display: flex; } .burger { display: block; } .topbar .btn-sm { margin-left: auto; } }
 .menu a { white-space: nowrap; }
 .tag-soon { display: inline-block; font: .7rem var(--f-pixel); padding: 1px 6px; margin-left: 6px; color: #2a1a10; background: var(--lantern); box-shadow: 0 0 0 2px var(--outline); vertical-align: 1px; }
+
+/* M60: a still hero - one HUD-free game picture at exactly 2x (3x on very wide screens), no zoom, pan, blur or video */
+.hero-media { background: #1b2330 url(img/shots/hero_meowmont.png) center center / 1920px 1080px no-repeat; image-rendering: pixelated; filter: none; transform: none; }
+@media (min-width: 1921px) { .hero-media { background-size: 2880px 1620px; } }
+@media (max-width: 960px) { .hero-media { background-size: 1920px 1080px; } }
+.hero-media::after { background: linear-gradient(180deg, rgba(14, 18, 28, .25) 0%, rgba(14, 18, 28, .35) 30%, rgba(14, 18, 28, .72) 62%, rgba(18, 12, 8, .9) 100%); }
+.hero-logo { animation: none; filter: drop-shadow(0 6px 0 rgba(0, 0, 0, .45)); }
+.hero { min-height: 0; }
+.hero-inner { padding-block: clamp(56px, 9vw, 118px) 64px; }
+.hero .motes .mote { will-change: transform, opacity; }
