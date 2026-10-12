@@ -26,6 +26,7 @@
   color-scheme: dark; }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; scroll-padding-top: 72px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body { margin: 0; background: var(--ground); color: var(--ink); font: 500 16px/1.65 var(--f-body); overflow-x: clip; }
@@ -39,7 +40,7 @@ h3 { font-size: 1.3rem; line-height: 1.25; margin: .2em 0 .5em; }
 p { margin: .5em 0; }
 
 .wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; }
-.wrap.narrow { max-width: 860px; }
+.wrap.narrow { max-width: 1000px; }
 .band { padding-block: 68px; }
 .band.dim { background: var(--ground-2); }
 .band.night { background: var(--night); color: var(--night-ink); --ink: var(--night-ink); --ink-soft: var(--night-soft); --card: var(--night-2); }
@@ -99,7 +100,7 @@ p { margin: .5em 0; }
 /* download */
 .dl-box { padding: 26px 20px 18px; text-align: center; margin-bottom: 34px; }
 .dl-box .cta-note { color: var(--night-soft); text-shadow: none; }
-.steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
 .step { padding: 20px 22px 16px; }
 .step ul, .step ol { padding-left: 1.2em; margin: 0; }
 .step li { margin: 6px 0; font-size: .95rem; }
