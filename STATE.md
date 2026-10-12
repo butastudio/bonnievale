@@ -14,12 +14,9 @@ Cập nhật 2026-10-12 ~15:50.
   butastudio.github.io/bonnievale tự chuyển sang. www → CNAME butastudio.github.io (DNS đúng).
 - Xem cục bộ: launch.json "bonnievale-web" (node `.claude/serve_book.js`, cổng 8765) trong `D:\Claude Folder`.
 
-## Đang giữ, CHƯA push (chờ chủ game "đồng ý")
-- e99a43d mã mời (bước 3 + câu hỏi "Làm sao có mã mời?")
-- 21b67ca M60 đầu trang tĩnh (ảnh 2x, bỏ video nền, CLS 0)
-- d1aadb4 xóa nhãn tên trong ảnh nền
-- edb6d2d yêu cầu máy (4 GB RAM, ~500 MB, Internet)
-- Khi có "đồng ý": `cd "D:/Cat Valley/bonnievale-web" && git push`, chờ Pages build, kiểm trang.
+## Đã push
+- 2026-10-12: chủ game "đồng ý" → đẩy mã mời, M60 đầu trang tĩnh, xóa nhãn ảnh nền, yêu cầu máy (01038aa, Pages built, trang kiểm OK).
+- Không còn commit nào đang giữ.
 
 ## HTTPS
 - XONG: Enforce HTTPS bật; https gốc, www, http và link cũ đều về https://bonnievale.world.
