@@ -10,7 +10,7 @@ window.SITE = {
   discordUrl: "https://discord.gg/7A4B6aYnDU",
 
   // Email nhận câu hỏi về dữ liệu cá nhân (trang Quyền riêng tư). Rỗng thì trang ghi "qua Discord".
-  contactEmail: "",
+  contactEmail: "friendsbuta@gmail.com",
 
   // Video gameplay (mục Video và tab hai xứ). src rỗng thì hiện ảnh poster kèm chữ "Đang quay".
   // hero: video nền đầu trang (tắt tiếng, lặp).

@@ -331,3 +331,5 @@ body { font-size: 17.5px; }
 .discord-card .title { font-size: clamp(1.4rem, 2.6vw, 1.9rem); }
 @media (max-width: 860px) { .community-art { background-position: center bottom, 0 0; opacity: .6; } }
 @media (max-width: 860px) { .intro-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 1100px) { .menu { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: #2a1a10; padding: 8px 12px 14px; box-shadow: 0 4px 0 var(--rim-lo); } .menu.open { display: flex; } .burger { display: block; } .topbar .btn-sm { margin-left: auto; } }
+.menu a { white-space: nowrap; }
