@@ -15,14 +15,14 @@ window.SITE = {
   // Video gameplay (mục Video và tab hai xứ). src rỗng thì hiện ảnh poster kèm chữ "Đang quay".
   // hero: video nền đầu trang (tắt tiếng, lặp).
   videos: [
-    { id: "hero", title: "Meowmont đông người", src: "", poster: "img/shots/hero_meowmont.png" },
-    { id: "plaza", title: "Quảng trường Meowmont", src: "video/plaza.mp4", poster: "video/plaza.jpg", grid: false },
-    { id: "farm", title: "Gieo, tưới, thu hoạch", src: "", poster: "img/shots/farm.png" },
-    { id: "fair", title: "Hội Chợ Quả Sồi", src: "", poster: "img/shots/fair.png" },
-    { id: "barkridge", title: "Barkridge mùa tuyết", src: "", poster: "img/shots/highroad.png" },
-    { id: "deepwell", title: "Xuống Giếng Sâu", src: "", poster: "img/shots/deepwell.png" },
-    { id: "party", title: "Tổ bốn người đánh Hộ Vệ", src: "", poster: "img/shots/party.png" },
-    { id: "boss", title: "Boss săn chung", src: "", poster: "img/shots/heartwood5.png" },
+    { id: "hero", title: "Quảng trường Meowmont", src: "video/hero_bg.mp4", poster: "video/hero_bg.jpg" },
+    { id: "plaza", title: "Meowmont đông người", src: "video/hero.mp4", poster: "video/hero.jpg", grid: false },
+    { id: "farm", title: "Gieo, tưới, thu hoạch", src: "video/farm.mp4", poster: "video/farm.jpg" },
+    { id: "fair", title: "Đua Lá ở Hội Chợ Quả Sồi", src: "video/fair.mp4", poster: "video/fair.jpg" },
+    { id: "barkridge", title: "Barkridge mùa tuyết", src: "video/barkridge.mp4", poster: "video/barkridge.jpg" },
+    { id: "deepwell", title: "Đi thang xuống Giếng Sâu", src: "video/deepwell.mp4", poster: "video/deepwell.jpg" },
+    { id: "party", title: "Tổ bốn người đánh Hộ Vệ", src: "video/party.mp4", poster: "video/party.jpg" },
+    { id: "boss", title: "Hạ Khổng Lồ Nứt Vỡ", src: "video/boss.mp4", poster: "video/boss.jpg" },
   ],
 
   // Ghi chú phiên bản, bản mới nhất ở trên cùng (giọng ấm, ngắn, ghi điều người chơi thấy).
