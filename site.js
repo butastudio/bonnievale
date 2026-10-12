@@ -98,4 +98,100 @@
   $$("[data-contact]").forEach(el => {
     el.innerHTML = S.contactEmail ? `email <b class="mail">${esc(S.contactEmail)}</b>` : (S.discordUrl ? `<a href="${esc(S.discordUrl)}" rel="noopener">Discord của Bonnievale</a>` : "kênh liên hệ ghi trên trang chủ");
   });
+  // Khung xem lớn: bấm ảnh, video hay thẻ tính năng để phóng to; ◀ ▶, phím mũi tên, vuốt để chuyển
+  const lb = $("#lb");
+  if (lb && lb.showModal) {
+    const stage = $("#lb-stage"), strip = $("#lb-strip");
+    let list = [], at = 0, opener = null;
+    const vItem = id => { const v = vids[id]; return v && v.src ? { video: v.src, poster: v.poster, title: v.title } : v ? { img: v.poster, title: v.title } : null; };
+    const itemOf = el => {
+      if (el.classList.contains("clip")) { const id = el.dataset.video || el.dataset.v; return vItem(id); }
+      const img = el.querySelector("img") || el;
+      const cap = el.closest("figure") && el.closest("figure").querySelector("figcaption");
+      return { img: img.getAttribute("src"), title: img.alt || (cap ? cap.textContent : "") };
+    };
+    function open(items, i, from) {
+      list = items.filter(Boolean); if (!list.length) return;
+      opener = from; at = i;
+      strip.innerHTML = list.length > 1 ? list.map((it, k) => `<button type="button" class="${it.video ? "is-video" : ""}" style="background-image:url(${esc(it.poster || it.img)})" aria-label="${esc(it.title)}" data-k="${k}"></button>`).join("") : "";
+      $("#lb-prev").hidden = $("#lb-next").hidden = list.length < 2;
+      document.documentElement.classList.add("lb-open");
+      $$("video").forEach(v => { if (!lb.contains(v)) v.pause(); });
+      lb.showModal(); show();
+    }
+    function fit(img) {
+      const w = img.naturalWidth, h = img.naturalHeight, cs = getComputedStyle(stage);
+      const bw = stage.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      const bh = stage.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+      const r = Math.min(bw / w, bh / h), k = r >= 1 ? Math.floor(r) : r; // cả số lần khi phóng to, để điểm ảnh vuông đều
+      img.dataset.k = k; img.style.width = Math.round(w * k) + "px"; img.style.height = Math.round(h * k) + "px";
+    }
+    function show() {
+      const it = list[at]; stage.classList.remove("zoomed");
+      stage.innerHTML = it.video
+        ? `<video controls autoplay loop playsinline poster="${esc(it.poster)}" aria-label="${esc(it.title)}"><source src="${esc(it.video)}" type="video/mp4"></video>`
+        : `<img src="${esc(it.img)}" alt="${esc(it.title)}">`;
+      const img = $("img", stage);
+      if (img) {
+        const go = () => fit(img); img.complete ? go() : img.addEventListener("load", go);
+        img.addEventListener("click", e => {
+          e.stopPropagation();
+          if (stage.classList.toggle("zoomed")) {
+            const k = +img.dataset.k || 1, z = Math.max(2, Math.floor(k) + 1), rx = e.offsetX / img.clientWidth, ry = e.offsetY / img.clientHeight;
+            img.style.width = img.naturalWidth * z + "px"; img.style.height = img.naturalHeight * z + "px";
+            stage.scrollLeft = img.offsetWidth * rx - stage.clientWidth / 2; stage.scrollTop = img.offsetHeight * ry - stage.clientHeight / 2;
+          } else fit(img);
+        });
+      }
+      $("#lb-title").textContent = it.title || "";
+      $("#lb-more").textContent = it.more || "";
+      $("#lb-count").textContent = list.length > 1 ? `${at + 1} / ${list.length}` : "";
+      $$("button", strip).forEach((b, k) => b.setAttribute("aria-current", String(k === at)));
+      const cur = $(`[data-k="${at}"]`, strip); if (cur) cur.scrollIntoView({ block: "nearest", inline: "center" });
+    }
+    const step = d => { if (list.length > 1) { at = (at + d + list.length) % list.length; show(); } };
+    $("#lb-prev").onclick = () => step(-1); $("#lb-next").onclick = () => step(1);
+    $("#lb-close").onclick = () => lb.close();
+    strip.addEventListener("click", e => { const b = e.target.closest("[data-k]"); if (b) { at = +b.dataset.k; show(); } });
+    lb.addEventListener("click", e => { if (e.target === lb || e.target === stage) lb.close(); });
+    lb.addEventListener("keydown", e => { if (e.key === "ArrowLeft") step(-1); else if (e.key === "ArrowRight") step(1); });
+    lb.addEventListener("close", () => {
+      if (lb.open) return; // vừa mở lại ngay sau khi đóng
+      stage.innerHTML = ""; document.documentElement.classList.remove("lb-open");
+      if (opener) opener.focus({ preventScroll: true });
+      $$("video").forEach(v => { if (!lb.contains(v) && !still && v.getBoundingClientRect().bottom > 0 && v.getBoundingClientRect().top < innerHeight) v.play().catch(() => {}); });
+    });
+    let tx = null;
+    stage.addEventListener("touchstart", e => { tx = stage.classList.contains("zoomed") ? null : e.touches[0].clientX; }, { passive: true });
+    stage.addEventListener("touchend", e => { if (tx == null) return; const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1); tx = null; });
+    addEventListener("resize", () => { const img = $("img", stage); if (img && lb.open && !stage.classList.contains("zoomed")) fit(img); });
+
+    // Ảnh và clip trên trang: gom theo nhóm [data-gallery], còn lại mỗi cái một mình
+    const zoomables = $$(".shot img, .realm-thumbs img, .req.f8 img, .clip");
+    zoomables.forEach(el => {
+      let t = el;
+      if (el.tagName === "IMG") { const w = document.createElement("span"); w.className = "zw"; el.replaceWith(w); w.appendChild(el); t = w; }
+      t.classList.add("zoomable"); t.tabIndex = 0; t.setAttribute("role", "button");
+      t.setAttribute("aria-label", "Phóng to: " + ((itemOf(t) || {}).title || ""));
+    });
+    const go = t => {
+      const g = t.closest("[data-gallery]");
+      const members = g ? $$(".zoomable", g) : [t];
+      open(members.map(m => { const it = itemOf(m); if (it && g && g.id === "videos") { const c = m.closest("figure").querySelector("figcaption"); if (c) it.title = c.firstChild.textContent.trim(); } return it; }), members.indexOf(t), t);
+    };
+    // Thẻ tính năng: video và ảnh của tính năng đó, kèm đoạn giới thiệu dài hơn
+    const goFeat = card => {
+      const title = $("h3", card).textContent, more = card.dataset.more;
+      open(card.dataset.media.split("|").map(m => { const it = m.startsWith("v:") ? vItem(m.slice(2)) : { img: m, title }; return it && Object.assign({}, it, { title, more }); }), 0, card);
+    };
+    document.addEventListener("click", e => {
+      const z = e.target.closest(".zoomable"); if (z) { e.preventDefault(); go(z); return; }
+      const f = e.target.closest(".feat[data-media]"); if (f) goFeat(f);
+    });
+    document.addEventListener("keydown", e => {
+      if ((e.key !== "Enter" && e.key !== " ") || lb.open) return;
+      const z = e.target.closest && e.target.closest(".zoomable, .feat[data-media]"); if (!z) return;
+      e.preventDefault(); z.classList.contains("feat") ? goFeat(z) : go(z);
+    });
+  }
 })();
