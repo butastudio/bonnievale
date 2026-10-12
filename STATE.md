@@ -41,3 +41,8 @@ Cập nhật 2026-10-12 ~15:50.
 - 7 clip của NV2 ở `video/` (từ `D:\Claude Folder\Bonnievale_AnhLamViec\m53_clips\*.avi`, cắt 12 s, 640x360 → 2x, < 3 MB).
 - Hình trang trí NV3 ở `assets/art/` (x1 và x3). Ảnh chụp ở `img/shots/`, icon ở `img/icons/`.
 - Email liên hệ friendsbuta@gmail.com (QD-P05), Discord https://discord.gg/7A4B6aYnDU.
+
+## Phát 0.4.0 (M76/M77)
+- Khóa trong server.cfg = Nakama socket.server_key (phía client), phát công khai được (Leader 10-12).
+- CHỜ: NV1 sửa HUONG_DAN_TESTER.txt và đóng zip lại (M77). Chỉ phát khi có CẢ HAI: Leader báo kích thước + sha256 mới, VÀ chủ game gõ "đồng ý phát bản 0.4.0".
+- Khi phát: kiểm sha256 zip khớp; gh release create v0.4.0 <zip> --title "Bonnievale Online 0.4.0 - bản tester" --latest (ghi chú: bản thử kín, cần mã mời, PC Windows); config.js version/released/downloadUrl/downloadSize; push; tải về thật, so kích thước + sha256.
