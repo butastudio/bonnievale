@@ -130,6 +130,11 @@ h = h.replace(/<article class="entry quest[\s\S]*?<\/article>/g, art => {
 h = h.replace(/(<article class="entry item[^>]*id="it-item-(?:story|quest)-[^"]*"[\s\S]*?<div class="iname">[^<]*<\/div>)([\s\S]*?)(<\/div><\/div><\/article>)/g, (m, a, body, z) => { folded++; return a + SPOIL(body) + z; });
 console.log(`M55: ${m55} text fixes, ${folded} spoilers folded`);
 
+// M55 item 11: two names still wrong in the game's translations until 0.4.1 (NV2 fixes the source).
+{ const a = (h.match(/Lão Wick/g) || []).length, b = (h.match(/Archivist Ledger/g) || []).length;
+  h = h.split("Lão Wick").join("Bà Wick").split("Thủ thư Archivist Ledger").join("Thủ thư Ledger").split("Archivist Ledger").join("Thủ thư Ledger");
+  console.log(`names: Lão Wick ${a}, Archivist Ledger ${b} replaced`); }
+
 // Search must not read folded story text (its snippets would give it away).
 r55('n.parentElement.closest(".tick")', 'n.parentElement.closest(".tick, .spoil")');
 
