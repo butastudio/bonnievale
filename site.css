@@ -267,3 +267,67 @@ p { margin: .5em 0; }
 .title { align-items: flex-start; }
 .title::before { margin-top: .32em; }
 .realm-media { display: grid; gap: 12px; align-content: start; }
+
+/* ---------- M53 fixes: bigger body text, HUD-free hero, NV3's decor (assets/art, whole-number scales only) ---------- */
+body { font-size: 17.5px; }
+.lead, .ftext p, .feat p, .points li, .steps3 p, .req li, .req.f8 p, .faq details p, .discord-card p { font-size: 1rem; }
+.lead { max-width: 70ch; }
+.hero-tag { font-size: clamp(1.1rem, 2vw, 1.32rem); }
+.hero-media { background: #1b2330 url(img/shots/hero_meowmont.png) center 40% / 1920px auto repeat-x; image-rendering: pixelated; filter: blur(1.5px) saturate(1.05); transform: scale(1.02); }
+@media (max-width: 960px) { .hero-media { background-size: 960px auto; } }
+.hero-media::after { background: radial-gradient(70% 60% at 50% 42%, rgba(14, 18, 28, .55), rgba(14, 18, 28, .78) 75%), linear-gradient(180deg, rgba(14, 18, 28, .4), transparent 30%, transparent 60%, rgba(18, 12, 8, .92)); }
+.intro-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+
+/* 9-slice frames: x1 art, slice 16, drawn at 2x (border 32) */
+.card9 { border: 32px solid transparent; border-image: url(assets/art/x1/frame_card.png) 16 fill round; image-rendering: pixelated; background: none; box-shadow: none; padding: 0; filter: drop-shadow(5px 6px 0 var(--shadow)); }
+.wood9 { border: 32px solid transparent; border-image: url(assets/art/x1/frame_wood.png) 16 round; image-rendering: pixelated; background: var(--night-2); box-shadow: none; padding: 6px; filter: drop-shadow(6px 7px 0 rgba(0, 0, 0, .5)); }
+.card9, .card9 h3, .card9 h2 { color: #2b1c10; }
+.card9 p, .card9 .lead { color: #5a4530; }
+
+/* feature cards: big icon, one-line title, two short lines */
+.features { gap: 18px; }
+.feat.card9 { position: relative; text-align: center; transition: transform .2s; }
+.feat.card9:hover { transform: translateY(-6px); filter: drop-shadow(5px 10px 0 var(--shadow)) drop-shadow(0 0 16px rgba(255, 200, 100, .45)); }
+.feat.card9 img { width: 64px; height: 64px; margin: -6px auto 6px; background: radial-gradient(circle, rgba(255, 207, 90, .5), transparent 68%); }
+.feat.card9 h3 { font-size: 1.08rem; margin: 0 0 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.feat.card9 p { font-size: .95rem; margin: 0; line-height: 1.5; }
+.stretch { position: absolute; inset: -32px; z-index: 1; }
+@media (prefers-reduced-motion: reduce) { .feat.card9 { transition: none; } }
+
+/* section dividers: NV3's lantern vine (Cat) and snow rope with mine lamps (Dog), at 3x */
+.divider { height: 102px; margin: -51px 0; position: relative; z-index: 3; background: url(assets/art/divider_cat.png) center / auto 102px repeat-x; image-rendering: pixelated; pointer-events: none; }
+.divider-dog { height: 90px; margin: -45px 0; background-image: url(assets/art/divider_dog.png); background-size: auto 90px; }
+@media (max-width: 860px) { .divider { height: 68px; margin: -34px 0; background-size: auto 68px; } .divider-dog { height: 60px; margin: -30px 0; background-size: auto 60px; } }
+
+/* realm panels: the waving cat and dog (two frames, 0.4 s each), at 2x */
+.realm.wood9 { background: var(--night-2); }
+.greet { width: 96px; height: 128px; float: right; margin: -8px 0 4px 12px; background: url(assets/art/x1/greet_cat_0.png) center / 96px 128px no-repeat; image-rendering: pixelated; animation: wave-cat .8s steps(1) infinite; }
+.greet-dog { background-image: url(assets/art/x1/greet_dog_0.png); animation-name: wave-dog; }
+@keyframes wave-cat { 0% { background-image: url(assets/art/x1/greet_cat_0.png); } 50% { background-image: url(assets/art/x1/greet_cat_1.png); } }
+@keyframes wave-dog { 0% { background-image: url(assets/art/x1/greet_dog_0.png); } 50% { background-image: url(assets/art/x1/greet_dog_1.png); } }
+@media (prefers-reduced-motion: reduce) { .greet { animation: none; } }
+
+/* sprite motes */
+.mote, .mote.leaf { background: center / contain no-repeat; box-shadow: none; image-rendering: pixelated; }
+.mote.fly { width: 16px; height: 16px; filter: drop-shadow(0 0 4px rgba(255, 214, 110, .9)); }
+.mote.leaf { width: 20px; height: 20px; animation: fall var(--d, 12s) linear infinite; opacity: .95; }
+.mote.snow { width: 12px; height: 12px; animation: snowfall var(--d, 12s) linear infinite; opacity: .95; }
+@keyframes snowfall { 0% { transform: translate(0, -20px); } 50% { transform: translate(14px, 55vh); } 100% { transform: translate(-6px, 110vh); } }
+.snow { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 1; }
+@media (prefers-reduced-motion: reduce) { .snow { display: none; } }
+
+/* community: NV3's sunset with the wooden Discord sign, at 3x */
+.community { background: #2b2a5c; overflow: hidden; }
+.community-art { position: absolute; inset: 0; background: url(assets/art/community_bg.png) center bottom / 960px 288px repeat-x, linear-gradient(#e9a36a, #5c3f73 60%, #2d3b2a); image-rendering: pixelated; opacity: .95; }
+.community .wrap { position: relative; z-index: 1; }
+.discord-card.card9 { max-width: 760px; }
+.discord-card .btn img { width: 48px; height: 48px; image-rendering: pixelated; margin-right: 4px; }
+@media (max-width: 860px) { .greet { width: 72px; height: 96px; background-size: 72px 96px; } }
+.feat.card9 h3 { white-space: normal; overflow: visible; text-overflow: clip; min-height: 2.5em; display: flex; align-items: center; justify-content: center; line-height: 1.25; }
+.community-art { background: url(assets/art/community_bg.png) right -40px bottom / 960px 288px no-repeat, linear-gradient(#e9a36a, #b0707a 38%, #5c3f73 62%, #2d3b2a 80%); }
+.community { min-height: 360px; display: flex; align-items: center; }
+.community .wrap { width: 100%; }
+.discord-card.card9 { max-width: 640px; flex-direction: column; align-items: flex-start; gap: 18px; }
+.discord-card .title { font-size: clamp(1.4rem, 2.6vw, 1.9rem); }
+@media (max-width: 860px) { .community-art { background-position: center bottom, 0 0; opacity: .6; } }
+@media (max-width: 860px) { .intro-grid { grid-template-columns: minmax(0, 1fr); } }

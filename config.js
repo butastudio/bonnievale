@@ -15,7 +15,8 @@ window.SITE = {
   // Video gameplay (mục Video và tab hai xứ). src rỗng thì hiện ảnh poster kèm chữ "Đang quay".
   // hero: video nền đầu trang (tắt tiếng, lặp).
   videos: [
-    { id: "hero", title: "Meowmont đông người", src: "video/plaza.mp4", poster: "video/plaza.jpg" },
+    { id: "hero", title: "Meowmont đông người", src: "", poster: "img/shots/hero_meowmont.png" },
+    { id: "plaza", title: "Quảng trường Meowmont", src: "video/plaza.mp4", poster: "video/plaza.jpg", grid: false },
     { id: "farm", title: "Gieo, tưới, thu hoạch", src: "", poster: "img/shots/farm.png" },
     { id: "fair", title: "Hội Chợ Quả Sồi", src: "", poster: "img/shots/fair.png" },
     { id: "barkridge", title: "Barkridge mùa tuyết", src: "", poster: "img/shots/highroad.png" },

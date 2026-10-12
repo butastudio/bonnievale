@@ -16,7 +16,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#2a1a10">
 <link rel="icon" href="img/icon.png">
-<link rel="preload" as="image" href="video/plaza.jpg">
+<link rel="preload" as="image" href="img/shots/hero_meowmont.png">
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
@@ -39,7 +39,7 @@
 <main>
 <section class="hero" aria-label="Bonnievale Online">
   <div class="hero-media">
-    <video id="hero-video" muted loop playsinline preload="metadata" poster="video/plaza.jpg" aria-hidden="true"></video>
+    <video id="hero-video" muted loop playsinline preload="none" aria-hidden="true" hidden></video>
   </div>
   <div class="glow" aria-hidden="true"></div>
   <div class="motes" data-motes="18" aria-hidden="true"></div>
@@ -53,7 +53,6 @@
     <p class="cta-note" data-download-note></p>
     <div class="badges"><span>Online · chơi chung</span><span>PC Windows</span><span>Miễn phí</span><span>Tiếng Việt</span></div>
   </div>
-  <a class="scroll-cue" href="#gioi-thieu" aria-label="Xem tiếp"><span></span></a>
 </section>
 
 <section class="band intro" id="gioi-thieu">
@@ -61,8 +60,8 @@
     <div class="intro-grid">
       <div>
         <div class="eyebrow">Giới thiệu</div>
-        <h2 class="title">Một thung lũng, nhiều người cùng sống</h2>
-        <p class="lead">Bonnievale là game pixel về một thung lũng nơi các xứ Mèo, Chó và những vương quốc khác từng giữ chung một lời hứa. Bạn nhận một mảnh đất nhỏ, làm quen dân làng, học nghề, rồi cùng những người chơi khác xuống hầm ngục để tìm lại ánh sáng cho thung lũng.</p>
+        <h2 class="title">Một thung lũng, chơi chung</h2>
+        <p class="lead">Bonnievale là game pixel về một thung lũng nơi năm xứ Mèo, Chó, Thỏ, Cáo, Gấu từng giữ chung một lời hứa. Bạn nhận một mảnh đất nhỏ, làm quen dân làng, học nghề, rồi cùng những người chơi khác xuống hầm ngục để tìm lại ánh sáng cho thung lũng.</p>
         <p class="lead">Mọi người ở chung một thế giới: bạn thấy người khác đi chợ, câu cá, đánh quái, và có thể rủ họ vào tổ.</p>
       </div>
       <figure class="shot frame tilt"><img src="img/shots/plaza.png" alt="Năm người chơi quanh đài phun nước Meowmont" width="1280" height="672" loading="lazy"><figcaption>Quảng trường Meowmont giữa trưa, chụp trong game.</figcaption></figure>
@@ -70,25 +69,28 @@
   </div>
 </section>
 
+<div class="divider divider-cat" aria-hidden="true"></div>
 <section class="band dim" id="tinh-nang">
   <div class="wrap">
     <div class="eyebrow">Tính năng</div>
     <h2 class="title">Có gì trong bản tester</h2>
     <div class="features">
-      <article class="feat frame"><img src="img/icons/world.png" alt="" width="32" height="32"><h3>Thế giới chung online</h3><p>Một tài khoản, nhân vật lưu trên máy chủ. Ngày đêm và mùa trôi theo giờ thật, người chơi khác đi lại ngay cạnh bạn.</p></article>
-      <article class="feat frame"><img src="img/icons/party.png" alt="" width="32" height="32"><h3>Tổ đội đánh boss</h3><p>Lập tổ tới 4 người. Hộ Vệ hầm ngục và boss săn có vạch đỏ, vòng đỏ báo đòn; máu boss tăng theo số người.</p></article>
-      <article class="feat frame"><img src="img/icons/classes.png" alt="" width="32" height="32"><h3>4 lớp, 12 nhánh</h3><p>Chiến binh, Cung thủ, Pháp sư, Sát thủ. Lên Lv 10 thử cả ba nhánh rồi chọn một; Sách Kỹ Năng để nâng từng chiêu.</p></article>
-      <article class="feat frame"><img src="img/icons/farm.png" alt="" width="32" height="32"><h3>Trồng trọt bốn mùa</h3><p>Cuốc, gieo, tưới, thu hoạch hàng chục loại cây. Cây lớn theo giờ thật, đất khô thì đứng yên chứ không chết.</p></article>
-      <article class="feat frame"><img src="img/icons/crafts.png" alt="" width="32" height="32"><h3>Học nghề</h3><p>Câu cá, đào mỏ, nấu ăn, bào chế, rèn. Mỗi bậc nghề mở hạt giống, công thức và thuốc mạnh hơn.</p></article>
-      <article class="feat frame"><img src="img/icons/fair.png" alt="" width="32" height="32"><h3>Hội Chợ Quả Sồi</h3><p>Nơi người hai xứ gặp nhau: đua lá, câu vịt, kệ hàng và những phần thưởng chỉ hội chợ mới có.</p></article>
-      <article class="feat frame"><img src="img/icons/story.png" alt="" width="32" height="32"><h3>Cốt truyện mỗi xứ</h3><p>Mỗi xứ một câu chuyện riêng, đi tới đâu mở tới đó. Thẻ Tiếp theo và đom đóm luôn chỉ việc kế tiếp.</p></article>
-      <article class="feat frame"><img src="img/icons/style.png" alt="" width="32" height="32"><h3>Diện theo ý bạn</h3><p>Giống, màu lông, gương mặt, áo, quần, mũ. Chọn ngay khi tạo nhân vật và thay bất cứ lúc nào.</p></article>
+      <article class="feat card9"><img src="assets/art/x1/icon_shared_world.png" alt="" width="64" height="64"><h3>Thế giới chung</h3><p>Một tài khoản, nhân vật lưu trên máy chủ. Người chơi khác đi lại ngay cạnh bạn.</p></article>
+      <article class="feat card9"><img src="assets/art/x1/icon_party.png" alt="" width="64" height="64"><h3>Tổ đội 4 người</h3><p>Bốn lớp, mười hai nhánh. Rủ bạn vào tổ, chia vai mà đánh.</p></article>
+      <article class="feat card9"><img src="assets/art/x1/icon_boss.png" alt="" width="64" height="64"><h3>Boss biết ra chiêu</h3><p>Vạch đỏ, vòng đỏ báo đòn. Máu boss tăng theo số người trong tổ.</p></article>
+      <article class="feat card9"><img src="assets/art/x1/icon_farming.png" alt="" width="64" height="64"><h3>Trồng trọt bốn mùa</h3><p>Cây lớn theo giờ thật. Đất khô thì cây chờ, không bao giờ chết.</p></article>
+      <article class="feat card9"><img src="assets/art/x1/icon_crafts.png" alt="" width="64" height="64"><h3>Học nghề</h3><p>Câu cá, đào mỏ, nấu ăn, bào chế, rèn. Mỗi bậc mở công thức mới.</p></article>
+      <article class="feat card9"><img src="assets/art/x1/icon_fair.png" alt="" width="64" height="64"><h3>Hội Chợ Quả Sồi</h3><p>Nơi người hai xứ gặp nhau: đua lá, câu vịt, kệ hàng hội chợ.</p></article>
+      <article class="feat card9"><img src="assets/art/x1/icon_two_lands.png" alt="" width="64" height="64"><h3>Hai xứ, hai câu chuyện</h3><p>Bắt đầu ở Xứ Mèo hoặc Xứ Chó. Mỗi xứ một quê nhà, một bí mật.</p></article>
+      <article class="feat card9"><a class="stretch" href="cam-nang.html" aria-label="Cẩm Nang tra cứu"></a><img src="assets/art/x1/icon_guide.png" alt="" width="64" height="64"><h3>Cẩm Nang tra cứu</h3><p>Nhiệm vụ, boss, cây trồng, vật phẩm. Tìm gì cũng có.</p></article>
     </div>
   </div>
 </section>
 
+<div class="divider divider-cat" aria-hidden="true"></div>
 <section class="band night" id="hai-xu">
   <div class="motes" data-motes="10" aria-hidden="true"></div>
+  <div class="snow" data-snow="22" aria-hidden="true" hidden></div>
   <div class="wrap">
     <div class="eyebrow">Hai xứ</div>
     <h2 class="title">Bắt đầu ở Xứ Mèo hay Xứ Chó?</h2>
@@ -97,10 +99,11 @@
       <button class="btn realm-tab" type="button" role="tab" id="tab-cat" aria-controls="realm-cat" aria-selected="true"><img src="img/icons/realm_cat.png" alt="" width="40" height="31">Xứ Mèo</button>
       <button class="btn realm-tab" type="button" role="tab" id="tab-dog" aria-controls="realm-dog" aria-selected="false"><img src="img/icons/realm_dog.png" alt="" width="40" height="31">Xứ Chó</button>
     </div>
-    <div class="realm frame" id="realm-cat" role="tabpanel" aria-labelledby="tab-cat">
-      <div class="realm-media"><div class="clip" data-video="hero"></div>
+    <div class="realm wood9" id="realm-cat" role="tabpanel" aria-labelledby="tab-cat">
+      <div class="realm-media"><div class="clip" data-video="plaza"></div>
         <div class="realm-thumbs"><img src="img/shots/meowmont.png" alt="Meowmont về đêm" width="640" height="360" loading="lazy"><img src="img/shots/heartwood5.png" alt="Một tầng Cây Cổ Thụ" width="640" height="360" loading="lazy"></div></div>
       <div class="realm-text">
+        <div class="greet greet-cat" role="img" aria-label="Một chú mèo vẫy chào"></div>
         <h3>Meowmont, thung lũng Hoa Đèn Lồng</h3>
         <ul class="points">
           <li><b>Thị trấn Meowmont</b> quanh đài phun nước, nơi Hoa Đèn Lồng từng sáng. Tiệm, quán, hội phiêu lưu và dân làng có giờ giấc riêng.</li>
@@ -109,13 +112,14 @@
         </ul>
       </div>
     </div>
-    <div class="realm frame" id="realm-dog" role="tabpanel" aria-labelledby="tab-dog" hidden>
+    <div class="realm wood9" id="realm-dog" role="tabpanel" aria-labelledby="tab-dog" hidden>
       <div class="realm-media"><div class="clip" data-video="barkridge"></div>
         <div class="realm-thumbs"><img src="img/shots/highroad.png" alt="Đường cao nguyên tuyết" width="640" height="360" loading="lazy"><img src="img/shots/deepwell.png" alt="Một tầng Giếng Sâu" width="640" height="360" loading="lazy"></div></div>
       <div class="realm-text">
+        <div class="greet greet-dog" role="img" aria-label="Một chú chó vẫy chào"></div>
         <h3>Barkridge, cao nguyên tuyết</h3>
         <ul class="points">
-          <li><b>Làng Barkridge</b> trên sườn núi: cầu đá, cối xay nước, chợ và những ngôi nhà mái xanh lên đèn mỗi tối.</li>
+          <li><b>Thị trấn Barkridge</b> trên sườn núi: cầu đá, cối xay nước, chợ và những ngôi nhà mái xanh lên đèn mỗi tối.</li>
           <li><b>Giếng Sâu</b> dưới lòng núi: thang máy xuống từng tầng, mỗi tầng một Hộ Vệ cho tổ đội.</li>
           <li><b>Nông trại sườn đồi</b> và những con đường tuyết dẫn qua đèo, hang và đồng cỏ.</li>
         </ul>
@@ -124,6 +128,7 @@
   </div>
 </section>
 
+<div class="divider divider-dog" aria-hidden="true"></div>
 <section class="band" id="video">
   <div class="wrap">
     <div class="eyebrow">Video</div>
@@ -133,6 +138,7 @@
   </div>
 </section>
 
+<div class="divider divider-cat" aria-hidden="true"></div>
 <section class="band night" id="tai">
   <div class="motes" data-motes="10" aria-hidden="true"></div>
   <div class="wrap">
@@ -151,18 +157,20 @@
 </section>
 
 <section class="band community" id="cong-dong">
+  <div class="community-art" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="discord-card frame">
+    <div class="discord-card card9">
       <div>
         <div class="eyebrow">Cộng đồng</div>
         <h2 class="title">Vào Discord cùng đội làm game</h2>
         <p>Nhận tin bản mới đầu tiên, báo lỗi, khoe nông trại, tìm bạn lập tổ đánh boss, và góp ý trực tiếp cho đội làm Bonnievale.</p>
       </div>
-      <a class="btn btn-big discord" data-discord hidden href="#">Join Discord</a>
+      <a class="btn btn-big discord" data-discord hidden href="#"><img src="assets/art/x1/discord_badge.png" alt="" width="48" height="48">Join Discord</a>
     </div>
   </div>
 </section>
 
+<div class="divider divider-dog" aria-hidden="true"></div>
 <section class="band dim" id="hoi-dap">
   <div class="wrap narrow">
     <div class="eyebrow">Hỏi đáp</div>

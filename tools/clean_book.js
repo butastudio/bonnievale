@@ -94,6 +94,45 @@ const floorLines = (h.match(/ · hồi sinh sau 3 ngày · /g) || []).length;
 h = h.replace(/ · hồi sinh sau 3 ngày · /g, " · có mặt mỗi lần vào phòng · ");
 console.log(`M51: ${fixed} text fixes, ${cards} boss cards, ${floorLines} floor Guardian lines`);
 
+// --- M55: NV4's story check against the canon (docs/handoff/INBOX/NV7.md) -------------------------------------
+let m55 = 0;
+const r55 = (a, b, all) => { if (!h.includes(a)) { console.warn("M55: not found:", a.slice(0, 60)); return; } h = all ? h.split(a).join(b) : h.replace(a, b); m55++; };
+r55("Năm vương quốc và một Khế Ước cổ", "Năm xứ và một Khế Ước cổ");
+r55("năm vương quốc của Bonnievale", "năm xứ của Bonnievale");
+r55("dưới mọi vương quốc", "dưới mọi xứ");
+r55("giữa các vương quốc", "giữa các xứ");
+{ const i = h.indexOf("Đoạn mở đầu sau khi tạo nhân vật"); if (i > 0) { const p0 = h.lastIndexOf("<p>", i), p1 = h.indexOf("</p>", i) + 4;
+  h = h.slice(0, p0) + "<p>Lần đầu mở game, phim mở đầu (khoảng một phút rưỡi, có nhạc) kể chuyện xa hơn nữa: ngôi sao rơi xuống thành Cây Cổ Thụ, năm món quà của Cây, Lumir sa vào bóng tối thành Dạ Tôn Vaelthorn, Năm Người Lập Nghề, Ngũ Dạ Tướng và Trận Thượng Đỉnh bốn mươi năm trước. Xem lại ở menu chính: <b>Xem phim mở đầu</b>.</p>" + h.slice(p1); m55++; } else console.warn("M55: no opening sentence"); }
+{ const i = h.indexOf("<p>Mười năm trước, <b>Rosalind</b>"); if (i > 0) { const j = h.indexOf("</p>", i) + 4;
+  h = h.slice(0, j) + "\n  <p>Nếu chọn <b>Xứ Chó</b>, bạn bắt đầu trên sườn đồi Barkridge. Bốn mươi năm nay Giếng Sâu bị một chiếc nắp sắt bịt kín, ai cũng bảo là để cứu thị trấn, và một chiếc chìa khóa giếng cũ sắp tìm tới tay bạn.</p>" + h.slice(j); m55++; } }
+r55("Sổ tay (N) → thẻ Ký ức", "Cẩm Nang (N) → thẻ Ký ức");
+r55("người học việc <b>Thistle</b> bị biến thành Sứ Giả Hư Không, vàng của Hư Không", "người học việc của Rosalind, vàng từ bên dưới");
+r55("Sổ tay (Ký ức", "Cẩm Nang (Ký ức");
+r55("Chiến đấu Lv", "Lv", true);
+r55("cấp Chiến đấu tối thiểu", "cấp nhân vật tối thiểu");
+r55("Chiến binh, Đại Sư Ironjaw (Barkridge); Cung thủ, Đại Sư Fenna (Meowmont)", "Chiến binh, Trung sĩ Ironjaw (Barkridge); Cung thủ, Sư phụ Fenna (Meowmont)");
+// "only for the cat-born": by the quest's own realm (origin is a realm, not a species)
+h = h.replace(/<article class="entry quest[^>]*id="q-quest-([^"]+)"[\s\S]*?<\/article>/g, (art, id) =>
+  art.split("chỉ cho mèo sinh ra ở Xứ Mèo").join(id.startsWith("dog") ? "chỉ cho người quê Chó" : "chỉ cho người quê Mèo"));
+// timeline: the Day column (always 1 online) becomes a Realm column
+h = h.replace(/(<table class="timeline"><thead><tr><th>✓<\/th>)<th>Ngày<\/th>/, "$1<th>Xứ</th>");
+h = h.replace(/(<table class="timeline">[\s\S]*?<\/table>)/, t => t.replace(/<tr><td>(<input[^>]*data-track="q-quest-([a-z]+)[^"]*"[^>]*>)<\/td><td>[^<]*<\/td>/g, (m, inp, realm) =>
+  `<tr><td>${inp}</td><td>${realm === "dog" ? "Chó" : realm === "cat" ? "Mèo" : "-"}</td>`).split("chỉ cho mèo sinh ra ở Xứ Mèo").join("chỉ cho người cùng quê"));
+const SPOIL = s => `<details class="spoil"><summary>Hiện (lộ truyện)</summary>${s}</details>`;
+let folded = 0;
+h = h.replace(/<div class="mlines">[\s\S]*?<\/div>/g, m => { folded++; return SPOIL(m); });
+h = h.replace(/<ul class="phases">[\s\S]*?<\/ul>/g, m => { folded++; return SPOIL(m); });
+h = h.replace(/<article class="entry quest[\s\S]*?<\/article>/g, art => {
+  const ch = art.match(/<span class="chap">Chương (\d+)/);
+  if (!art.includes("b-story") || !ch || +ch[1] < 3) return art;
+  return art.replace(/<div class="qdesc">[\s\S]*?<\/div>/, m => { folded++; return SPOIL(m); });
+});
+h = h.replace(/(<article class="entry item[^>]*id="it-item-(?:story|quest)-[^"]*"[\s\S]*?<div class="iname">[^<]*<\/div>)([\s\S]*?)(<\/div><\/div><\/article>)/g, (m, a, body, z) => { folded++; return a + SPOIL(body) + z; });
+console.log(`M55: ${m55} text fixes, ${folded} spoilers folded`);
+
+// Search must not read folded story text (its snippets would give it away).
+r55('n.parentElement.closest(".tick")', 'n.parentElement.closest(".tick, .spoil")');
+
 // --- M53: a realm filter (Tất cả / Xứ Mèo / Xứ Chó) on top of the book's own search and chapter filters --------
 let tagged = { cat: 0, dog: 0 };
 h = h.replace(/<article class="entry([^"]*)"([^>]*?) id="([^"]+)"/g, (m, cls, rest, id) => {
@@ -108,6 +147,9 @@ const REALM_CSS = `<style>
 .realmbar { display: flex; align-items: center; gap: 6px; margin-top: 10px; font: .78rem var(--f-pixel); color: var(--ink-soft); flex-wrap: wrap; }
 .realmbar button { padding: 4px 10px; }
 .entry.realm-off { display: none !important; }
+.spoil { margin: 4px 0; }
+.spoil > summary { cursor: pointer; display: inline-block; font: .74rem var(--f-pixel); color: var(--seal); padding: 2px 8px; box-shadow: 0 0 0 1.5px var(--seal); margin: 2px 0; }
+.spoil[open] > summary { color: var(--ink-faint); box-shadow: 0 0 0 1.5px var(--line); }
 </style>`;
 const REALM_JS = `<script>
 (() => {
