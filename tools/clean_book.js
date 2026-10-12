@@ -40,7 +40,7 @@ h = h.replace(/<p class="lede">Bạn vừa nhận một mảnh đất nhỏ ở 
 h = h.replace(/<p class="lede">Lộ trình gợi ý cho người chơi tập trung\.[^<]*<\/p>/,
   '<p class="lede">Bảng dưới liệt kê nhiệm vụ theo thứ tự xuất hiện. Trong game, thẻ Tiếp theo và đom đóm luôn chỉ việc kế tiếp, nên bạn không cần đi theo đúng bảng.</p>');
 h = h.replace(/<p class="lede">Năm vương quốc, một loài hoa phát sáng[^<]*<\/p>/,
-  '<p class="lede">Năm vương quốc và một Khế Ước cổ. Đây là đoạn mở đầu mà mọi người chơi đều thấy; phần còn lại của câu chuyện mở dần theo nhiệm vụ trong game.</p>');
+  '<p class="lede">Năm xứ và một Khế Ước cổ. Đây là đoạn mở đầu mà mọi người chơi đều thấy; phần còn lại của câu chuyện mở dần theo nhiệm vụ trong game.</p>');
 
 // --- M51: NV4's online-rules fixes (docs/handoff/INBOX/NV7.md) ----------------------------------
 let fixed = 0;
@@ -97,10 +97,6 @@ console.log(`M51: ${fixed} text fixes, ${cards} boss cards, ${floorLines} floor 
 // --- M55: NV4's story check against the canon (docs/handoff/INBOX/NV7.md) -------------------------------------
 let m55 = 0;
 const r55 = (a, b, all) => { if (!h.includes(a)) { console.warn("M55: not found:", a.slice(0, 60)); return; } h = all ? h.split(a).join(b) : h.replace(a, b); m55++; };
-r55("Năm vương quốc và một Khế Ước cổ", "Năm xứ và một Khế Ước cổ");
-r55("năm vương quốc của Bonnievale", "năm xứ của Bonnievale");
-r55("dưới mọi vương quốc", "dưới mọi xứ");
-r55("giữa các vương quốc", "giữa các xứ");
 { const i = h.indexOf("Đoạn mở đầu sau khi tạo nhân vật"); if (i > 0) { const p0 = h.lastIndexOf("<p>", i), p1 = h.indexOf("</p>", i) + 4;
   h = h.slice(0, p0) + "<p>Lần đầu mở game, phim mở đầu (khoảng một phút rưỡi, có nhạc) kể chuyện xa hơn nữa: ngôi sao rơi xuống thành Cây Cổ Thụ, năm món quà của Cây, Lumir sa vào bóng tối thành Dạ Tôn Vaelthorn, Năm Người Lập Nghề, Ngũ Dạ Tướng và Trận Thượng Đỉnh bốn mươi năm trước. Xem lại ở menu chính: <b>Xem phim mở đầu</b>.</p>" + h.slice(p1); m55++; } else console.warn("M55: no opening sentence"); }
 { const i = h.indexOf("<p>Mười năm trước, <b>Rosalind</b>"); if (i > 0) { const j = h.indexOf("</p>", i) + 4;
@@ -118,7 +114,8 @@ h = h.replace(/<article class="entry quest[^>]*id="q-quest-([^"]+)"[\s\S]*?<\/ar
 h = h.replace(/(<table class="timeline"><thead><tr><th>✓<\/th>)<th>Ngày<\/th>/, "$1<th>Xứ</th>");
 h = h.replace(/(<table class="timeline">[\s\S]*?<\/table>)/, t => t.replace(/<tr><td>(<input[^>]*data-track="q-quest-([a-z]+)[^"]*"[^>]*>)<\/td><td>[^<]*<\/td>/g, (m, inp, realm) =>
   `<tr><td>${inp}</td><td>${realm === "dog" ? "Chó" : realm === "cat" ? "Mèo" : "-"}</td>`).split("chỉ cho mèo sinh ra ở Xứ Mèo").join("chỉ cho người cùng quê"));
-// --- Cốt truyện, phần mở đầu: chủ game thấy câu chưa hợp lý (2026-10-12). Viết lại theo canon trong game:
+// --- Cốt truyện, phần mở đầu (2026-10-12): ba đoạn đầu đã sửa ở gốc cam_nang_book.html (M74c). Ở đây chỉ còn hai đoạn
+// chỉ có trên bản online (Xứ Chó, phim mở đầu kèm câu Vaelthorn/Hư Không của NV4, câu lộ truyện để trong phần gấp). Lý do cũ:
 // ai cũng thấy các câu ở Đá Đồng Cỏ ("a cat and a dog held one lantern between their paws"), rương "inside Rose Cottage",
 // "the Rootway flooded the deep mines, the dogs blamed the flower", Khế Ước Đầu Tiên của vua mộ có trước Khế Ước Đèn Lồng,
 // phim mở đầu: Trận Thượng Đỉnh rồi Đại Rạn Nứt.
@@ -127,22 +124,13 @@ const block = (start, end, html) => { // thay từ chỗ bắt đầu bằng `st
   const i = h.indexOf(start); if (i < 0) { console.warn("story: not found:", start.slice(0, 50)); return; }
   const j = h.indexOf(end, i) + end.length; h = h.slice(0, i) + html + h.slice(j); story++;
 };
-block("<p>Ngày xưa, năm xứ của Bonnievale", "</ul>",
-`<p>Ngày xưa, năm xứ của Bonnievale gắn bó với nhau bằng những khế ước. Nổi tiếng nhất là <b>Khế Ước Đèn Lồng</b> giữa mèo và chó:</p>
-  <ul>
-  <li><b>Loài mèo</b> chăm <b>Hoa Đèn Lồng</b>, loài hoa tỏa sáng như một chiếc đèn, mọc giữa đài phun nước ở quảng trường Meowmont từ thời <b>Trưởng làng Tansy</b> lập làng. Rễ hoa lan khắp thung lũng theo <b>Mạch Rễ</b> và giữ cho đất màu mỡ. Bà của Marigold kể ngày ấy, đêm nào đất cũng khẽ ngân nga.</li>
-  <li><b>Loài chó</b> giữ <b>Giếng Sâu</b> trên cao nguyên. Nước ấm từ giếng theo Mạch Rễ chảy về phía tây, nuôi rễ Hoa Đèn Lồng.</li>
-  <li>Tại <b>Đá Đồng Cỏ</b>, một chú mèo và một chú chó cùng nâng chung một chiếc đèn lồng và thề: <i>"Nước từ núi cao, ánh sáng từ thung lũng."</i> Trên đá đến giờ vẫn còn khắc hình chiếc đèn ấy, nằm giữa một bàn chân mèo và một bàn chân chó.</li>
-  </ul>`);
-block("<p>Khoảng bốn mươi năm trước, <b>Đại Rạn Nứt</b>", "</p>",
-`<p>Khoảng bốn mươi năm trước, <b>Đại Rạn Nứt</b> xé toạc mặt đất, mở ra vùng đất vỡ <b>Shatterwilds</b> nằm giữa các xứ và làm nứt Mạch Rễ. Trên cao nguyên, nước theo các vết nứt của Mạch Rễ tràn vào những mỏ sâu của loài chó. Loài chó tin rằng rễ hoa của mèo đã làm nứt đá, nên <b>bịt Giếng Sâu</b> lại để cứu thị trấn. Từ đó nước không còn chảy về thung lũng. Hoa Đèn Lồng tàn dần, và đất Xứ Mèo cũng cạn sức theo.</p>`);
-block("<p>Mười năm trước, <b>Rosalind</b>", "</p>",
-`<p>Mười năm trước, <b>Rosalind</b>, mẹ của Trưởng làng Saffron và là Người Giữ Đèn cuối cùng, cất hạt giống Hoa Đèn Lồng cuối cùng vào chiếc rương nhà kính trong <b>Nhà Hoa Hồng</b>, rồi lên đường về phía đông, mang theo một bản Khế Ước mới cho loài chó. Bà không bao giờ trở về. Cùng mùa ấy, bọn cướp của <b>Thủ Lĩnh Gristle</b> chiếm con đường cũ, và Saffron phải đóng <b>Cổng Đông</b>.</p>`);
 block("<p>Nếu chọn <b>Xứ Chó</b>", "</p>",
 `<p>Nếu chọn <b>Xứ Chó</b>, bạn bắt đầu ở Barkridge trên sườn núi. Đã bốn mươi năm Giếng Sâu bị bịt bằng một chiếc nắp sắt, ai cũng bảo làm vậy để cứu thị trấn. Rồi một chiếc chìa khóa giếng cũ tìm đến tay bạn.</p>`);
 block("<p>Lần đầu mở game, phim mở đầu", "</p>",
-`<p>Lần đầu vào game, phim mở đầu (khoảng một phút rưỡi, có nhạc) kể chuyện từ xa xưa hơn: ngôi sao rơi xuống thung lũng và mọc thành Cây Cổ Thụ, năm món quà của Cây, Lumir sa vào bóng tối và trở thành Dạ Tôn Vaelthorn, Năm Người Lập Nghề, Ngũ Dạ Tướng, rồi Trận Thượng Đỉnh và Đại Rạn Nứt bốn mươi năm trước. Xem lại ở menu chính: <b>Xem phim mở đầu</b>.</p>`);
-console.log(`story: ${story}/5 paragraphs rewritten`);
+`<p>Lần đầu vào game, phim mở đầu (khoảng một phút rưỡi, có nhạc) kể chuyện từ xa xưa hơn: ngôi sao rơi xuống thung lũng và mọc thành Cây Cổ Thụ, năm món quà của Cây, Lumir sa vào bóng tối và trở thành Dạ Tôn Vaelthorn, Năm Người Lập Nghề, Ngũ Dạ Tướng, rồi Trận Thượng Đỉnh và Đại Rạn Nứt bốn mươi năm trước. Xem lại ở menu chính: <b>Xem phim mở đầu</b>.</p>
+  <p>Hư Không là bóng tối dưới lòng đất mà bạn gặp ở Xứ Mèo; phim mở đầu cho thấy kẻ đứng sau nó: Dạ Tôn Vaelthorn.</p>
+  <details class="spoil"><summary>Hiện (lộ truyện)</summary><p>Hư Không là chiếc rễ cái của Cây Cổ Thụ, chiếc rễ đã trói Vaelthorn (Lumir sa ngã) dưới đáy Vực; hắn đầu độc nó, nên nó vừa là nhà tù vừa là tay chân của hắn.</p></details>`);
+console.log(`story: ${story}/2 paragraphs rewritten`);
 
 const SPOIL = s => `<details class="spoil"><summary>Hiện (lộ truyện)</summary>${s}</details>`;
 let folded = 0;
