@@ -94,6 +94,45 @@ const floorLines = (h.match(/ · hồi sinh sau 3 ngày · /g) || []).length;
 h = h.replace(/ · hồi sinh sau 3 ngày · /g, " · có mặt mỗi lần vào phòng · ");
 console.log(`M51: ${fixed} text fixes, ${cards} boss cards, ${floorLines} floor Guardian lines`);
 
+// --- M53: a realm filter (Tất cả / Xứ Mèo / Xứ Chó) on top of the book's own search and chapter filters --------
+let tagged = { cat: 0, dog: 0 };
+h = h.replace(/<article class="entry([^"]*)"([^>]*?) id="([^"]+)"/g, (m, cls, rest, id) => {
+  const r = /dog/.test(id) ? "dog" : (/(^|-)cat(-|$)|cat_|(^|-)hw-|heartwood|enemy-boss-|enemy-hunt-(old|mistmother|hollow|rustbone|raider|crackmarch)/.test(id) ? "cat" : "");
+  if (!r) return m;
+  tagged[r]++;
+  return `<article class="entry${cls}"${rest} id="${id}" data-realm="${r}"`;
+});
+const REALM_UI = `<div class="realmbar" id="realmbar" role="group" aria-label="Lọc theo xứ"><span>Xứ:</span>
+<button type="button" data-r="" aria-pressed="true">Tất cả</button><button type="button" data-r="cat" aria-pressed="false">Xứ Mèo</button><button type="button" data-r="dog" aria-pressed="false">Xứ Chó</button></div>`;
+const REALM_CSS = `<style>
+.realmbar { display: flex; align-items: center; gap: 6px; margin-top: 10px; font: .78rem var(--f-pixel); color: var(--ink-soft); flex-wrap: wrap; }
+.realmbar button { padding: 4px 10px; }
+.entry.realm-off { display: none !important; }
+</style>`;
+const REALM_JS = `<script>
+(() => {
+  const KEY = "bonnievale.camnang.realm"; let r = "";
+  try { r = localStorage.getItem(KEY) || ""; } catch (e) {}
+  const bar = document.getElementById("realmbar");
+  function apply() {
+    document.querySelectorAll(".entry[data-realm]").forEach(el => el.classList.toggle("realm-off", !!r && el.dataset.realm !== r));
+    bar.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.r === r)));
+    try { localStorage.setItem(KEY, r); } catch (e) {}
+  }
+  bar.addEventListener("click", e => { const b = e.target.closest("button"); if (b) { r = b.dataset.r; apply(); } });
+  // a search result or a link always shows its target, whatever the realm filter
+  document.addEventListener("click", e => {
+    const t = e.target.closest('a[href^="#"], .res'); if (!t || !r) return;
+    setTimeout(() => { const el = document.getElementById(location.hash.slice(1)); if (el && el.classList.contains("realm-off")) { r = ""; apply(); el.scrollIntoView({ block: "start" }); } }, 60);
+  }, true);
+  apply();
+})();
+</script>`;
+h = h.replace('<div class="kinds" id="kinds"', REALM_UI + '\n    <div class="kinds" id="kinds"');
+h = h.replace("</head>", REALM_CSS + "\n</head>");
+h = h.replace(/<\/body>\s*<\/html>\s*$/, REALM_JS + "\n</body>\n</html>\n");
+console.log(`M53: realm tags cat ${tagged.cat}, dog ${tagged.dog}; realm bar ${h.includes('id="realmbar"') ? "in" : "MISSING"}`);
+
 const out = path.join(__dirname, "..", "cam-nang.html");
 fs.writeFileSync(out, h);
 const left = (h.match(/<article class="entry/g) || []).length;

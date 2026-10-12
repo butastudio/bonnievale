@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bonnievale Online</title>
-<meta name="description" content="Bonnievale Online - game nông trại và phiêu lưu pixel chơi chung. Hai xứ Mèo và Chó, trồng trọt, học nghề, tổ đội đánh boss trong một thế giới chung. Bản thử nghiệm cho PC Windows.">
+<meta name="description" content="Bonnievale Online - game nông trại và phiêu lưu pixel chơi chung. Hai xứ Mèo và Chó, trồng trọt, học nghề, Hội Chợ, tổ đội đánh boss trong một thế giới chung. Bản thử nghiệm miễn phí cho PC Windows.">
 <meta property="og:title" content="Bonnievale Online">
-<meta property="og:description" content="Nông trại và phiêu lưu pixel chơi chung: hai xứ Mèo và Chó, tổ đội đánh boss. Tải bản thử nghiệm cho PC.">
+<meta property="og:description" content="Nông trại và phiêu lưu pixel chơi chung: hai xứ Mèo và Chó, tổ đội đánh boss. Tải bản thử nghiệm cho PC, vào Discord cùng đội làm game.">
 <meta property="og:image" content="https://bonnievale.world/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -16,123 +16,172 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#2a1a10">
 <link rel="icon" href="img/icon.png">
+<link rel="preload" as="image" href="video/plaza.jpg">
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
 
-<header class="topbar">
-  <a class="brand" href="./" aria-label="Bonnievale Online - trang chủ"><img src="img/logo_small.png" alt="Bonnievale" width="150" height="49"></a>
+<header class="topbar" id="top">
+  <a class="brand" href="#top" aria-label="Bonnievale Online - lên đầu trang"><img src="img/logo_small.png" alt="Bonnievale" width="150" height="49"></a>
   <nav class="menu" id="menu" aria-label="Mục chính">
     <a href="#gioi-thieu">Giới thiệu</a>
-    <a href="#tai">Tải bản tester</a>
-    <a href="#tin-tuc">Tin tức</a>
+    <a href="#tinh-nang">Tính năng</a>
+    <a href="#hai-xu">Hai xứ</a>
+    <a href="#video">Video</a>
+    <a href="#tai">Tải game</a>
+    <a href="#hoi-dap">Hỏi đáp</a>
     <a href="cam-nang.html">Cẩm Nang</a>
   </nav>
-  <a class="btn btn-sm discord" data-discord hidden href="#" rel="noopener">Join Discord</a>
+  <a class="btn btn-sm discord" data-discord hidden href="#">Join Discord</a>
   <button class="burger" id="burger" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
 </header>
 
 <main>
-<section class="hero">
-  <div class="hero-art" role="img" aria-label="Làng Barkridge của Xứ Chó lúc lên đèn, chụp trong game"></div>
+<section class="hero" aria-label="Bonnievale Online">
+  <div class="hero-media">
+    <video id="hero-video" muted loop playsinline preload="metadata" poster="video/plaza.jpg" aria-hidden="true"></video>
+  </div>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="motes" data-motes="18" aria-hidden="true"></div>
   <div class="hero-inner">
     <img class="hero-logo" src="img/logo.png" alt="Bonnievale" width="980" height="322">
     <p class="hero-tag">Nông trại và phiêu lưu pixel, chơi chung với mọi người trong một thung lũng. Làm ruộng, học nghề, rồi lập tổ đội hạ những con boss biết ra chiêu.</p>
-    <div class="badges"><span>Bản thử nghiệm online</span><span>PC Windows</span><span>Miễn phí</span><span>Tiếng Việt · English</span></div>
     <div class="cta">
       <a class="btn btn-big" data-download href="#tai">Tải bản tester</a>
-      <a class="btn btn-big discord" data-discord hidden href="#" rel="noopener">Join Discord</a>
+      <a class="btn btn-big discord" data-discord hidden href="#">Join Discord</a>
     </div>
     <p class="cta-note" data-download-note></p>
+    <div class="badges"><span>Online · chơi chung</span><span>PC Windows</span><span>Miễn phí</span><span>Tiếng Việt</span></div>
+  </div>
+  <a class="scroll-cue" href="#gioi-thieu" aria-label="Xem tiếp"><span></span></a>
+</section>
+
+<section class="band intro" id="gioi-thieu">
+  <div class="wrap">
+    <div class="intro-grid">
+      <div>
+        <div class="eyebrow">Giới thiệu</div>
+        <h2 class="title">Một thung lũng, nhiều người cùng sống</h2>
+        <p class="lead">Bonnievale là game pixel về một thung lũng nơi các xứ Mèo, Chó và những vương quốc khác từng giữ chung một lời hứa. Bạn nhận một mảnh đất nhỏ, làm quen dân làng, học nghề, rồi cùng những người chơi khác xuống hầm ngục để tìm lại ánh sáng cho thung lũng.</p>
+        <p class="lead">Mọi người ở chung một thế giới: bạn thấy người khác đi chợ, câu cá, đánh quái, và có thể rủ họ vào tổ.</p>
+      </div>
+      <figure class="shot frame tilt"><img src="img/shots/plaza.png" alt="Năm người chơi quanh đài phun nước Meowmont" width="1280" height="672" loading="lazy"><figcaption>Quảng trường Meowmont giữa trưa, chụp trong game.</figcaption></figure>
+    </div>
   </div>
 </section>
 
-<section class="band" id="gioi-thieu">
+<section class="band dim" id="tinh-nang">
   <div class="wrap">
-    <h2 class="title">Một thung lũng, hai xứ</h2>
-    <p class="lead">Bạn bắt đầu ở Xứ Mèo hoặc Xứ Chó. Mỗi xứ có quê nhà, cốt truyện, dân làng và hầm ngục riêng. Đi đủ xa, bạn sẽ gặp người chơi của xứ kia.</p>
-    <div class="realms">
-      <figure class="shot frame"><img src="img/shots/meowmont.png" alt="Quảng trường Meowmont của Xứ Mèo về đêm" width="640" height="360" loading="lazy"><figcaption><b>Xứ Mèo</b> Thị trấn Meowmont, Hoa Đèn Lồng và Cây Cổ Thụ chín tầng.</figcaption></figure>
-      <figure class="shot frame"><img src="img/shots/highroad.png" alt="Đường cao nguyên phủ tuyết của Xứ Chó" width="640" height="360" loading="lazy"><figcaption><b>Xứ Chó</b> Cao nguyên tuyết, làng Barkridge và Giếng Sâu dưới lòng núi.</figcaption></figure>
+    <div class="eyebrow">Tính năng</div>
+    <h2 class="title">Có gì trong bản tester</h2>
+    <div class="features">
+      <article class="feat frame"><img src="img/icons/world.png" alt="" width="32" height="32"><h3>Thế giới chung online</h3><p>Một tài khoản, nhân vật lưu trên máy chủ. Ngày đêm và mùa trôi theo giờ thật, người chơi khác đi lại ngay cạnh bạn.</p></article>
+      <article class="feat frame"><img src="img/icons/party.png" alt="" width="32" height="32"><h3>Tổ đội đánh boss</h3><p>Lập tổ tới 4 người. Hộ Vệ hầm ngục và boss săn có vạch đỏ, vòng đỏ báo đòn; máu boss tăng theo số người.</p></article>
+      <article class="feat frame"><img src="img/icons/classes.png" alt="" width="32" height="32"><h3>4 lớp, 12 nhánh</h3><p>Chiến binh, Cung thủ, Pháp sư, Sát thủ. Lên Lv 10 thử cả ba nhánh rồi chọn một; Sách Kỹ Năng để nâng từng chiêu.</p></article>
+      <article class="feat frame"><img src="img/icons/farm.png" alt="" width="32" height="32"><h3>Trồng trọt bốn mùa</h3><p>Cuốc, gieo, tưới, thu hoạch hàng chục loại cây. Cây lớn theo giờ thật, đất khô thì đứng yên chứ không chết.</p></article>
+      <article class="feat frame"><img src="img/icons/crafts.png" alt="" width="32" height="32"><h3>Học nghề</h3><p>Câu cá, đào mỏ, nấu ăn, bào chế, rèn. Mỗi bậc nghề mở hạt giống, công thức và thuốc mạnh hơn.</p></article>
+      <article class="feat frame"><img src="img/icons/fair.png" alt="" width="32" height="32"><h3>Hội Chợ Quả Sồi</h3><p>Nơi người hai xứ gặp nhau: đua lá, câu vịt, kệ hàng và những phần thưởng chỉ hội chợ mới có.</p></article>
+      <article class="feat frame"><img src="img/icons/story.png" alt="" width="32" height="32"><h3>Cốt truyện mỗi xứ</h3><p>Mỗi xứ một câu chuyện riêng, đi tới đâu mở tới đó. Thẻ Tiếp theo và đom đóm luôn chỉ việc kế tiếp.</p></article>
+      <article class="feat frame"><img src="img/icons/style.png" alt="" width="32" height="32"><h3>Diện theo ý bạn</h3><p>Giống, màu lông, gương mặt, áo, quần, mũ. Chọn ngay khi tạo nhân vật và thay bất cứ lúc nào.</p></article>
     </div>
+  </div>
+</section>
 
-    <div class="feature">
-      <figure class="shot frame"><img src="img/shots/farm.png" alt="Ruộng rau đủ loại trong nông trại" width="1280" height="720" loading="lazy"></figure>
-      <div class="ftext">
-        <div class="eyebrow">Trồng trọt và nghề</div>
-        <h3>Ruộng của riêng bạn, theo bốn mùa</h3>
-        <p>Cuốc, gieo, tưới và thu hoạch hàng chục loại cây. Học nghề với các thầy trong làng: trồng trọt, bào chế, nấu ăn, rèn, câu cá, đào mỏ. Mỗi bậc nghề mở thêm hạt giống và công thức mới.</p>
+<section class="band night" id="hai-xu">
+  <div class="motes" data-motes="10" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="eyebrow">Hai xứ</div>
+    <h2 class="title">Bắt đầu ở Xứ Mèo hay Xứ Chó?</h2>
+    <p class="lead">Mỗi xứ có quê nhà, dân làng, cốt truyện và hầm ngục riêng. Đi đủ xa, bạn gặp người chơi của xứ kia.</p>
+    <div class="realm-tabs" role="tablist" aria-label="Chọn xứ">
+      <button class="btn realm-tab" type="button" role="tab" id="tab-cat" aria-controls="realm-cat" aria-selected="true"><img src="img/icons/realm_cat.png" alt="" width="40" height="31">Xứ Mèo</button>
+      <button class="btn realm-tab" type="button" role="tab" id="tab-dog" aria-controls="realm-dog" aria-selected="false"><img src="img/icons/realm_dog.png" alt="" width="40" height="31">Xứ Chó</button>
+    </div>
+    <div class="realm frame" id="realm-cat" role="tabpanel" aria-labelledby="tab-cat">
+      <div class="realm-media"><div class="clip" data-video="hero"></div>
+        <div class="realm-thumbs"><img src="img/shots/meowmont.png" alt="Meowmont về đêm" width="640" height="360" loading="lazy"><img src="img/shots/heartwood5.png" alt="Một tầng Cây Cổ Thụ" width="640" height="360" loading="lazy"></div></div>
+      <div class="realm-text">
+        <h3>Meowmont, thung lũng Hoa Đèn Lồng</h3>
+        <ul class="points">
+          <li><b>Thị trấn Meowmont</b> quanh đài phun nước, nơi Hoa Đèn Lồng từng sáng. Tiệm, quán, hội phiêu lưu và dân làng có giờ giấc riêng.</li>
+          <li><b>Cây Cổ Thụ chín tầng</b>: mỗi tầng một cách leo, có bẫy, kho báu và một Hộ Vệ giữ cầu thang.</li>
+          <li><b>Bảy bãi săn</b> mở bằng chuỗi manh mối ẩn, boss thức tỉnh đánh chung với cả kênh.</li>
+        </ul>
       </div>
     </div>
-    <div class="feature flip">
-      <figure class="shot frame"><img src="img/shots/party.png" alt="Tổ bốn người khác lớp cùng đánh boss ở Giếng Sâu tầng 2, vòng báo đá rơi" width="1280" height="720" loading="lazy"></figure>
-      <div class="ftext">
-        <div class="eyebrow">Tổ đội và boss</div>
-        <h3>Lập tổ đến bốn người, hạ boss cùng nhau</h3>
-        <p>Bốn lớp nhân vật, mỗi lớp ba nhánh chuyên sâu. Boss báo đòn bằng vạch đỏ, vòng đỏ và đổi cách đánh theo lượng máu. Hộ Vệ các tầng hầm ngục và boss săn được đánh chung theo tổ, máu boss tăng theo số người.</p>
+    <div class="realm frame" id="realm-dog" role="tabpanel" aria-labelledby="tab-dog" hidden>
+      <div class="realm-media"><div class="clip" data-video="barkridge"></div>
+        <div class="realm-thumbs"><img src="img/shots/highroad.png" alt="Đường cao nguyên tuyết" width="640" height="360" loading="lazy"><img src="img/shots/deepwell.png" alt="Một tầng Giếng Sâu" width="640" height="360" loading="lazy"></div></div>
+      <div class="realm-text">
+        <h3>Barkridge, cao nguyên tuyết</h3>
+        <ul class="points">
+          <li><b>Làng Barkridge</b> trên sườn núi: cầu đá, cối xay nước, chợ và những ngôi nhà mái xanh lên đèn mỗi tối.</li>
+          <li><b>Giếng Sâu</b> dưới lòng núi: thang máy xuống từng tầng, mỗi tầng một Hộ Vệ cho tổ đội.</li>
+          <li><b>Nông trại sườn đồi</b> và những con đường tuyết dẫn qua đèo, hang và đồng cỏ.</li>
+        </ul>
       </div>
     </div>
-    <div class="feature">
-      <figure class="shot frame"><img src="img/shots/plaza.png" alt="Năm người chơi quanh đài phun nước Meowmont" width="1280" height="672" loading="lazy"></figure>
-      <div class="ftext">
-        <div class="eyebrow">Thế giới chung</div>
-        <h3>Mọi người cùng ở một thung lũng</h3>
-        <p>Đăng nhập một tài khoản, nhân vật và nông trại lưu trên máy chủ. Bạn thấy người chơi khác đi lại, đánh quái và đánh boss săn ngay trên bản đồ. Ngày đêm và mùa trôi theo giờ thật của máy chủ.</p>
-      </div>
-    </div>
+  </div>
+</section>
+
+<section class="band" id="video">
+  <div class="wrap">
+    <div class="eyebrow">Video</div>
+    <h2 class="title">Quay thật trong game</h2>
+    <p class="lead">Không dựng, không vẽ thêm: đây là bản tester đang chạy.</p>
+    <div class="videos" id="videos"></div>
   </div>
 </section>
 
 <section class="band night" id="tai">
-  <div class="wrap narrow">
-    <h2 class="title">Tải bản tester</h2>
-    <div class="dl-box frame">
-      <div class="dl-row">
-        <a class="btn btn-big" data-download href="#tai">Tải bản tester</a>
-        <a class="btn btn-big discord" data-discord hidden href="#" rel="noopener">Join Discord</a>
-      </div>
-      <p class="cta-note" data-download-note></p>
+  <div class="motes" data-motes="10" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="eyebrow">Tải game</div>
+    <h2 class="title">Ba bước để vào thung lũng</h2>
+    <ol class="steps3">
+      <li class="frame"><span class="num">1</span><h3>Tải bản tester</h3><p>File .zip cho Windows 10/11 64-bit. Bấm chuột phải chọn <b>Extract All</b> để giải nén.</p><a class="btn" data-download href="#tai">Tải bản tester</a><p class="cta-note" data-download-note></p></li>
+      <li class="frame"><span class="num">2</span><h3>Chạy Bonnievale.exe</h3><p>Nếu Windows hiện "Windows protected your PC", bấm <b>More info</b> rồi <b>Run anyway</b>. Game chưa ký số nên Windows cảnh báo, chuyện bình thường với bản thử.</p></li>
+      <li class="frame"><span class="num">3</span><h3>Tạo tài khoản, chọn xứ</h3><p>Đăng ký bằng email và mật khẩu từ 8 ký tự, tạo nhân vật, chọn <b>Xứ Mèo</b> hoặc <b>Xứ Chó</b>, rồi đi theo đom đóm.</p></li>
+    </ol>
+    <div class="req-row">
+      <div class="req frame"><h3>Yêu cầu máy</h3><ul><li>Windows 10 hoặc 11, 64-bit</li><li>Card đồ họa hỗ trợ OpenGL 3.3</li><li>Mạng ổn định (game chơi online)</li><li>Bàn phím và chuột, có hỗ trợ tay cầm</li></ul></div>
+      <div class="req frame f8"><h3>Gặp lỗi? Nhấn <span class="key">F8</span></h3><p>Hộp báo lỗi mở ngay trong game. Viết điều đã xảy ra, giữ ô đính kèm ảnh nếu muốn, bấm Gửi. Báo lỗi gửi kèm phiên bản, chỗ bạn đứng, nhiệm vụ, cấp, lớp và 200 dòng log cuối.</p><img src="img/shots/f8.png" alt="Hộp báo lỗi F8 trong game" width="1280" height="720" loading="lazy"></div>
     </div>
-
-    <div class="steps">
-      <div class="step frame">
-        <h3>Yêu cầu máy</h3>
-        <ul>
-          <li>Windows 10 hoặc 11, bản 64-bit.</li>
-          <li>Card đồ họa hỗ trợ OpenGL 3.3 (hầu hết máy từ 2012 trở lại đây).</li>
-          <li>Có kết nối mạng ổn định: game chơi online, không chơi được khi mất mạng.</li>
-          <li>Bàn phím và chuột. Có hỗ trợ tay cầm.</li>
-        </ul>
-      </div>
-      <div class="step frame">
-        <h3>Cách cài</h3>
-        <ol>
-          <li>Tải file .zip, bấm chuột phải chọn <b>Extract All</b> để giải nén cả thư mục. Đừng chạy thẳng trong file zip.</li>
-          <li>Chạy <b>Bonnievale.exe</b>. Nếu Windows hiện "Windows protected your PC", bấm <b>More info</b> rồi <b>Run anyway</b>. Game chưa được ký số nên Windows cảnh báo, chuyện bình thường với bản thử nghiệm.</li>
-          <li>Khi có bản mới, game sẽ báo ngay ở màn đăng nhập và đưa bạn về trang này để tải.</li>
-        </ol>
-      </div>
-      <div class="step frame">
-        <h3>Lần đầu chơi</h3>
-        <ol>
-          <li>Ở màn đăng nhập, bấm <b>Tạo tài khoản</b> bằng email và mật khẩu từ 8 ký tự.</li>
-          <li>Tạo nhân vật: chọn tên, ngoại hình, trang phục, và xứ bắt đầu là <b>Xứ Mèo</b> hoặc <b>Xứ Chó</b>.</li>
-          <li>Đi theo đom đóm và thẻ <b>Tiếp theo</b> ở góc màn hình. Người có dấu <b>!</b> trên đầu đang có việc cho bạn.</li>
-          <li>Đổi ngôn ngữ ở <b>Esc → Settings → Display → Language</b>.</li>
-        </ol>
-      </div>
-      <div class="step frame f8">
-        <h3>Gặp lỗi? Nhấn <span class="key">F8</span></h3>
-        <p>F8 mở hộp báo lỗi ngay trong game. Viết điều đã xảy ra và điều bạn mong đợi, giữ ô "Đính kèm ảnh chụp" nếu muốn, rồi bấm Gửi. Báo lỗi gửi kèm phiên bản, chỗ bạn đứng, nhiệm vụ, cấp, lớp và 200 dòng log cuối để đội sửa nhanh hơn.</p>
-        <figure class="shot frame"><img src="img/shots/f8.png" alt="Hộp báo lỗi mở bằng phím F8 trong game" width="1280" height="720" loading="lazy"></figure>
-      </div>
-    </div>
-    <p class="note">Đây là bản thử nghiệm sớm: chắc chắn còn lỗi, máy chủ có thể tắt để bảo trì, và dữ liệu nhân vật có thể được làm mới trước khi game ra mắt chính thức.</p>
   </div>
 </section>
 
-<section class="band dim" id="tin-tuc">
+<section class="band community" id="cong-dong">
+  <div class="wrap">
+    <div class="discord-card frame">
+      <div>
+        <div class="eyebrow">Cộng đồng</div>
+        <h2 class="title">Vào Discord cùng đội làm game</h2>
+        <p>Nhận tin bản mới đầu tiên, báo lỗi, khoe nông trại, tìm bạn lập tổ đánh boss, và góp ý trực tiếp cho đội làm Bonnievale.</p>
+      </div>
+      <a class="btn btn-big discord" data-discord hidden href="#">Join Discord</a>
+    </div>
+  </div>
+</section>
+
+<section class="band dim" id="hoi-dap">
   <div class="wrap narrow">
+    <div class="eyebrow">Hỏi đáp</div>
+    <h2 class="title">Câu hỏi thường gặp</h2>
+    <div class="faq">
+      <details class="frame"><summary>Game có miễn phí không?</summary><p>Có. Bản tester miễn phí hoàn toàn, không có gì phải trả tiền.</p></details>
+      <details class="frame"><summary>Có cần mạng không?</summary><p>Có. Bonnievale Online lưu nhân vật trên máy chủ và mọi người chơi chung một thế giới, nên cần mạng ổn định suốt lúc chơi.</p></details>
+      <details class="frame"><summary>Chơi cùng bạn bè thế nào?</summary><p>Cứ đăng nhập là bạn ở chung thế giới với mọi người. Gặp bạn trên bản đồ thì mời vào tổ (tối đa 4 người) để cùng đánh Hộ Vệ và boss săn.</p></details>
+      <details class="frame"><summary>Có bản Mac hay điện thoại không?</summary><p>Bản tester hiện chỉ có cho PC Windows. Các bản khác sẽ báo trên Discord khi sẵn sàng.</p></details>
+      <details class="frame"><summary>Nhân vật của tôi có bị xóa không?</summary><p>Có thể. Trước khi game ra mắt chính thức, dữ liệu bản thử nghiệm có thể được làm mới. Đội sẽ báo trước trên trang này và trên Discord.</p></details>
+      <details class="frame"><summary>Windows báo "protected your PC", có an toàn không?</summary><p>Cảnh báo này hiện với mọi chương trình chưa được ký số. Chỉ tải game từ trang này hoặc link trong Discord chính thức, rồi bấm More info → Run anyway.</p></details>
+      <details class="frame"><summary>Gặp lỗi thì báo ở đâu?</summary><p>Nhấn F8 ngay trong game. Muốn kể dài hơn hay gửi video, nhắn trong kênh báo lỗi trên Discord.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="tin-tuc">
+  <div class="wrap narrow">
+    <div class="eyebrow">Tin tức</div>
     <h2 class="title">Ghi chú phiên bản</h2>
     <div id="news"></div>
   </div>
@@ -140,10 +189,10 @@
 </main>
 
 <footer class="foot">
-  <div class="wrap">
-    <img src="img/logo_small.png" alt="Bonnievale" width="150" height="49">
-    <p class="foot-links"><a href="dieu-khoan.html">Điều khoản</a> · <a href="quyen-rieng-tu.html">Quyền riêng tư</a> · <a href="cam-nang.html#c-credits">Giấy phép</a></p>
-    <p>© 2026 BUTA Studio. Ảnh trên trang chụp trong game. Phông chữ dùng giấy phép SIL OFL (<a href="fonts/BeVietnamPro-OFL.txt">Be Vietnam Pro</a>, <a href="fonts/DepartureMonoViet-OFL.txt">Departure Mono Việt</a>).</p>
+  <div class="wrap foot-grid">
+    <div><img src="img/logo_small.png" alt="Bonnievale" width="150" height="49"><p>© 2026 BUTA Studio. Ảnh và video trên trang chụp trong game.</p></div>
+    <nav aria-label="Liên kết cuối trang" class="foot-links"><a href="cam-nang.html">Cẩm Nang</a><a href="dieu-khoan.html">Điều khoản</a><a href="quyen-rieng-tu.html">Quyền riêng tư</a><a href="cam-nang.html#c-credits">Giấy phép</a><a data-discord hidden href="#">Discord</a></nav>
+    <p class="fine">Phông chữ dùng giấy phép SIL OFL (<a href="fonts/BeVietnamPro-OFL.txt">Be Vietnam Pro</a>, <a href="fonts/DepartureMonoViet-OFL.txt">Departure Mono Việt</a>). Một số hình của tác giả khác dùng theo giấy phép CC, xem mục Giấy phép.</p>
   </div>
 </footer>
 
