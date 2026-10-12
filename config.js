@@ -7,7 +7,7 @@ window.SITE = {
   downloadSize: "",
 
   // Link mời Discord của chủ game. Rỗng thì nút Join Discord ẩn.
-  discordUrl: "",
+  discordUrl: "https://discord.gg/7A4B6aYnDU",
 
   // Email nhận câu hỏi về dữ liệu cá nhân (trang Quyền riêng tư). Rỗng thì trang ghi "qua Discord".
   contactEmail: "",

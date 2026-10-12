@@ -11,7 +11,7 @@
   }
 
   // Join Discord: shown only when config has a link
-  $$("[data-discord]").forEach(a => { if (S.discordUrl) { a.href = S.discordUrl; a.hidden = false; } });
+  $$("[data-discord]").forEach(a => { if (S.discordUrl) { a.href = S.discordUrl; a.target = "_blank"; a.hidden = false; } });
 
   // Download button: the zip when there is one, otherwise "coming soon"
   const ready = !!S.downloadUrl;
