@@ -20,7 +20,11 @@ Cập nhật 2026-10-12 ~15:50.
 
 - 2026-10-12: chủ game "đồng ý" → đẩy bản sửa Cốt truyện (c06f80d), không chờ 0.4.0.
 
+## Đang giữ, CHƯA push
+- a3c1f6f Cẩm Nang: câu Vaelthorn/Hư Không (M74c). Cần chủ game "đồng ý" (lượt web riêng, không chờ 0.4.0).
+
 ## Đang chờ
+- Dựng Cẩm Nang từ cây online đang hỏng (font raw mất, 541 icon vật phẩm mất): đừng dựng lại tới khi Dev báo sửa; nếu cần sửa chữ, vá thẳng cam-nang.html cũ.
 - Chờ NV4 (M74) trả lời 5 chỗ lệch truyện trong dữ liệu game; Leader sẽ chuyển lại.
 
 ## HTTPS
