@@ -16,7 +16,12 @@ Cập nhật 2026-10-12 ~15:50.
 
 ## Đã push
 - 2026-10-12: chủ game "đồng ý" → đẩy mã mời, M60 đầu trang tĩnh, xóa nhãn ảnh nền, yêu cầu máy (01038aa, Pages built, trang kiểm OK).
-- Không còn commit nào đang giữ.
+- 2026-10-12: đẩy khung xem lớn (50d3765).
+
+## Đang giữ, CHƯA push
+- c06f80d Cẩm Nang: viết lại 5 đoạn mở đầu Cốt truyện theo canon (Leader đã duyệt).
+  Leader: push chung với lần phát 0.4.0, vẫn cần chủ game tự gõ "đồng ý" trong phiên NV7.
+- Chờ NV4 (M74) trả lời 5 chỗ lệch truyện trong dữ liệu game; Leader sẽ chuyển lại.
 
 ## HTTPS
 - XONG: Enforce HTTPS bật; https gốc, www, http và link cũ đều về https://bonnievale.world.
