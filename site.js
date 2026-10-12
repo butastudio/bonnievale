@@ -50,7 +50,7 @@
   $$("[data-video]").forEach(el => clip(el, vids[el.dataset.video]));
   const grid = $("#videos");
   if (grid) {
-    grid.innerHTML = (S.videos || []).filter(v => v.id !== "hero" && v.grid !== false).map(v => `<figure class="vcard frame"><div class="clip" data-v="${esc(v.id)}"></div><figcaption>${esc(v.title)}</figcaption></figure>`).join("");
+    grid.innerHTML = (S.videos || []).filter(v => v.id !== "hero" && v.grid !== false).map(v => `<figure class="vcard frame"><div class="clip" data-v="${esc(v.id)}"></div><figcaption>${esc(v.title)}${v.tag ? ` <span class="tag-soon">${esc(v.tag)}</span>` : ""}</figcaption></figure>`).join("");
     $$("[data-v]", grid).forEach(el => clip(el, vids[el.dataset.v]));
   }
   // Play only what is on screen (saves phones), never when motion is reduced

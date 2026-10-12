@@ -22,7 +22,7 @@ window.SITE = {
     { id: "barkridge", title: "Barkridge mùa tuyết", src: "video/barkridge.mp4", poster: "video/barkridge.jpg" },
     { id: "deepwell", title: "Đi thang xuống Giếng Sâu", src: "video/deepwell.mp4", poster: "video/deepwell.jpg" },
     { id: "party", title: "Tổ bốn người đánh Hộ Vệ", src: "video/party.mp4", poster: "video/party.jpg" },
-    { id: "boss", title: "Hạ Khổng Lồ Nứt Vỡ", src: "video/boss.mp4", poster: "video/boss.jpg" },
+    { id: "boss", title: "Gã Khổng Lồ Đất Rạn", tag: "Sắp có (Vòng 2)", src: "video/boss.mp4", poster: "video/boss.jpg" },
   ],
 
   // Ghi chú phiên bản, bản mới nhất ở trên cùng (giọng ấm, ngắn, ghi điều người chơi thấy).
