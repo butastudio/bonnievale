@@ -118,6 +118,32 @@ h = h.replace(/<article class="entry quest[^>]*id="q-quest-([^"]+)"[\s\S]*?<\/ar
 h = h.replace(/(<table class="timeline"><thead><tr><th>✓<\/th>)<th>Ngày<\/th>/, "$1<th>Xứ</th>");
 h = h.replace(/(<table class="timeline">[\s\S]*?<\/table>)/, t => t.replace(/<tr><td>(<input[^>]*data-track="q-quest-([a-z]+)[^"]*"[^>]*>)<\/td><td>[^<]*<\/td>/g, (m, inp, realm) =>
   `<tr><td>${inp}</td><td>${realm === "dog" ? "Chó" : realm === "cat" ? "Mèo" : "-"}</td>`).split("chỉ cho mèo sinh ra ở Xứ Mèo").join("chỉ cho người cùng quê"));
+// --- Cốt truyện, phần mở đầu: chủ game thấy câu chưa hợp lý (2026-10-12). Viết lại theo canon trong game:
+// ai cũng thấy các câu ở Đá Đồng Cỏ ("a cat and a dog held one lantern between their paws"), rương "inside Rose Cottage",
+// "the Rootway flooded the deep mines, the dogs blamed the flower", Khế Ước Đầu Tiên của vua mộ có trước Khế Ước Đèn Lồng,
+// phim mở đầu: Trận Thượng Đỉnh rồi Đại Rạn Nứt.
+let story = 0;
+const block = (start, end, html) => { // thay từ chỗ bắt đầu bằng `start` tới hết `end` đầu tiên sau đó
+  const i = h.indexOf(start); if (i < 0) { console.warn("story: not found:", start.slice(0, 50)); return; }
+  const j = h.indexOf(end, i) + end.length; h = h.slice(0, i) + html + h.slice(j); story++;
+};
+block("<p>Ngày xưa, năm xứ của Bonnievale", "</ul>",
+`<p>Ngày xưa, năm xứ của Bonnievale gắn bó với nhau bằng những khế ước. Nổi tiếng nhất là <b>Khế Ước Đèn Lồng</b> giữa mèo và chó:</p>
+  <ul>
+  <li><b>Loài mèo</b> chăm <b>Hoa Đèn Lồng</b>, loài hoa tỏa sáng như một chiếc đèn, mọc giữa đài phun nước ở quảng trường Meowmont từ thời <b>Trưởng làng Tansy</b> lập làng. Rễ hoa lan khắp thung lũng theo <b>Mạch Rễ</b> và giữ cho đất màu mỡ. Bà của Marigold kể ngày ấy, đêm nào đất cũng khẽ ngân nga.</li>
+  <li><b>Loài chó</b> giữ <b>Giếng Sâu</b> trên cao nguyên. Nước ấm từ giếng theo Mạch Rễ chảy về phía tây, nuôi rễ Hoa Đèn Lồng.</li>
+  <li>Tại <b>Đá Đồng Cỏ</b>, một chú mèo và một chú chó cùng nâng chung một chiếc đèn lồng và thề: <i>"Nước từ núi cao, ánh sáng từ thung lũng."</i> Trên đá đến giờ vẫn còn khắc hình chiếc đèn ấy, nằm giữa một bàn chân mèo và một bàn chân chó.</li>
+  </ul>`);
+block("<p>Khoảng bốn mươi năm trước, <b>Đại Rạn Nứt</b>", "</p>",
+`<p>Khoảng bốn mươi năm trước, <b>Đại Rạn Nứt</b> xé toạc mặt đất, mở ra vùng đất vỡ <b>Shatterwilds</b> nằm giữa các xứ và làm nứt Mạch Rễ. Trên cao nguyên, nước theo các vết nứt của Mạch Rễ tràn vào những mỏ sâu của loài chó. Loài chó tin rằng rễ hoa của mèo đã làm nứt đá, nên <b>bịt Giếng Sâu</b> lại để cứu thị trấn. Từ đó nước không còn chảy về thung lũng. Hoa Đèn Lồng tàn dần, và đất Xứ Mèo cũng cạn sức theo.</p>`);
+block("<p>Mười năm trước, <b>Rosalind</b>", "</p>",
+`<p>Mười năm trước, <b>Rosalind</b>, mẹ của Trưởng làng Saffron và là Người Giữ Đèn cuối cùng, cất hạt giống Hoa Đèn Lồng cuối cùng vào chiếc rương nhà kính trong <b>Nhà Hoa Hồng</b>, rồi lên đường về phía đông, mang theo một bản Khế Ước mới cho loài chó. Bà không bao giờ trở về. Cùng mùa ấy, bọn cướp của <b>Thủ Lĩnh Gristle</b> chiếm con đường cũ, và Saffron phải đóng <b>Cổng Đông</b>.</p>`);
+block("<p>Nếu chọn <b>Xứ Chó</b>", "</p>",
+`<p>Nếu chọn <b>Xứ Chó</b>, bạn bắt đầu ở Barkridge trên sườn núi. Đã bốn mươi năm Giếng Sâu bị bịt bằng một chiếc nắp sắt, ai cũng bảo làm vậy để cứu thị trấn. Rồi một chiếc chìa khóa giếng cũ tìm đến tay bạn.</p>`);
+block("<p>Lần đầu mở game, phim mở đầu", "</p>",
+`<p>Lần đầu vào game, phim mở đầu (khoảng một phút rưỡi, có nhạc) kể chuyện từ xa xưa hơn: ngôi sao rơi xuống thung lũng và mọc thành Cây Cổ Thụ, năm món quà của Cây, Lumir sa vào bóng tối và trở thành Dạ Tôn Vaelthorn, Năm Người Lập Nghề, Ngũ Dạ Tướng, rồi Trận Thượng Đỉnh và Đại Rạn Nứt bốn mươi năm trước. Xem lại ở menu chính: <b>Xem phim mở đầu</b>.</p>`);
+console.log(`story: ${story}/5 paragraphs rewritten`);
+
 const SPOIL = s => `<details class="spoil"><summary>Hiện (lộ truyện)</summary>${s}</details>`;
 let folded = 0;
 h = h.replace(/<div class="mlines">[\s\S]*?<\/div>/g, m => { folded++; return SPOIL(m); });
