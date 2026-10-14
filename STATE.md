@@ -47,3 +47,6 @@ Cập nhật 2026-10-12 ~15:50.
 
 ## Cẩm Nang 10-14
 - Đã push 84f7ad2: boss hang/săn ngủ 3 giờ thật CẢ KÊNH (tools/boss_rules.js), RA_CAM_NANG đợt 1 (tools/ra_rules.js). Cả hai chạy trong clean_book.js và chạy thẳng được trên cam-nang.html. Tiếp: đợt 2 của NV11 khi có.
+
+## Phát 0.4.0.1 - XONG (2026-10-14)
+- v0.4.0.1 Latest, zip 207.980.914 byte sha256 98b878b4…bb56, tải về khớp; config.js e60189c.
