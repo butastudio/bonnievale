@@ -44,3 +44,6 @@ Cập nhật 2026-10-12 ~15:50.
 
 ## Phát 0.4.0 - XONG (2026-10-12)
 - Chủ game "đồng ý phát bản 0.4.0" → release v0.4.0 (zip 207.952.403 byte, sha256 e51d4d51…2036), config.js bật nút Tải + ghi chú phiên bản (aac6766). Tải về thật từ Releases: sha256 khớp. Trang thật: nút "Tải bản tester" trỏ đúng link.
+
+## Cẩm Nang 10-14
+- Đã push 84f7ad2: boss hang/săn ngủ 3 giờ thật CẢ KÊNH (tools/boss_rules.js), RA_CAM_NANG đợt 1 (tools/ra_rules.js). Cả hai chạy trong clean_book.js và chạy thẳng được trên cam-nang.html. Tiếp: đợt 2 của NV11 khi có.
