@@ -1,9 +1,9 @@
 // Cấu hình trang web Bonnievale Online - sửa file này khi có bản mới, link Discord, email liên hệ.
 window.SITE = {
   // Bản tester hiện tại. Để downloadUrl rỗng ("") thì nút tải hiện "Sắp mở".
-  version: "0.4.0",
-  released: "12/10/2026",
-  downloadUrl: "https://github.com/butastudio/bonnievale/releases/download/v0.4.0/Bonnievale_Tester_0.4.0.zip",
+  version: "0.4.0.1",
+  released: "14/10/2026",
+  downloadUrl: "https://github.com/butastudio/bonnievale/releases/download/v0.4.0.1/Bonnievale_Tester_0.4.0.1.zip",
   downloadSize: "198 MB",
 
   // Link mời Discord của chủ game. Rỗng thì nút Join Discord ẩn.
@@ -27,6 +27,9 @@ window.SITE = {
   // Ghi chú phiên bản, bản mới nhất ở trên cùng (giọng ấm, ngắn, ghi điều người chơi thấy).
   // { version, date, intro, fixed: [], changed: [], todo: [] }
   news: [
+    { version: "0.4.0.1", date: "14/10/2026", intro: "Bản vá. Tài khoản và nhân vật giữ nguyên trên máy chủ.",
+      fixed: ["Mua Thép Cao Nguyên, Mật ong, Đá Tia Lửa không còn 0 xu.", "Bảng tỉ lệ ở Hội Chợ không còn làm rớt game.", "Vũ khí cầm bằng G tự mặc vào ô vũ khí và đánh trúng quái.", "Vá boss hang."],
+      changed: ["Game tự lưu lên máy chủ mỗi phút, và lưu ngay khi xong bước nhiệm vụ, đổi đồ hay sang map.", "Bảng chọn lớp hiện đủ 4 lớp.", "Mũi tên chỉ đường về nông trại, Đá Đồng Cỏ và Hội Chợ.", "Quà khởi đầu thêm 3 Rễ Nắng.", "Cân lại kinh nghiệm quái; quái do boss gọi ra không cho kinh nghiệm, xu hay đồ."] },
     { version: "0.4.0", date: "12/10/2026", intro: "Bản tester online đầu tiên. Cần mạng và một mã mời để tạo tài khoản.",
       changed: ["Chơi chung với người khác: gặp nhau trên bản đồ, chat, lập tổ tới 4 người.", "Tài khoản và mã mời, ghi nhớ đăng nhập trên máy.", "Chọn quê Xứ Mèo hoặc Xứ Chó, mỗi xứ một cốt truyện.", "Boss cốt truyện đánh trong thế giới riêng của bạn và tổ đội.", "Sách Kỹ Năng (O), bản đồ thế giới mới, giờ trong game chạy theo máy chủ."] },
   ],
