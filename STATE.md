@@ -1,5 +1,7 @@
 # NV7 (Web và Cẩm Nang) - trạng thái, đọc trước tiên sau khi nén ngữ cảnh
 
+**Sau compact: đọc STATE → `cat-valley/docs/handoff/PHAN_CONG_0.4.1.md` mục NV7 → PHAN_TICH của NV7 (khối "NV7 → Leader (2026-10-15) — XONG M101 PHẦN A" ở INBOX/LEADER.md, W1-W11) → làm Phần B khi Leader đánh thức (sau 16-10 14:00). Không đẩy web khi chủ game chưa gõ "đồng ý" trong phiên NV7.**
+
 Cập nhật 2026-10-12 ~15:50.
 
 ## Vai và luật
@@ -50,3 +52,7 @@ Cập nhật 2026-10-12 ~15:50.
 
 ## Phát 0.4.0.1 - XONG (2026-10-14)
 - v0.4.0.1 Latest, zip 207.980.914 byte sha256 98b878b4…bb56, tải về khớp; config.js e60189c.
+
+## 0.4.1 M101 (15-10)
+- Phần A XONG: danh sách W1-W11 ở INBOX/LEADER.md. So tự động 50 boss SO_BOSS ↔ web: máu/XP/xu khớp.
+- Phần B (chờ Leader): W2 bỏ câu lưu-vào-hang (sau 55), W3 Drill Queen drops, W4 vật liệu nhóm + Chiến Thắng Đầu Tiên, W5 nhãn loại boss (tools/boss_kinds.js), W6 ẩn Trial Dummy Elite, W8 bỏ "Từ ngày N", W9 thử dựng lại, W10 bài Hội Chợ.
