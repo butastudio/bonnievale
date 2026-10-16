@@ -1,6 +1,6 @@
 # NV7 (Web và Cẩm Nang) - trạng thái, đọc trước tiên sau khi nén ngữ cảnh
 
-**Sau compact: đọc STATE → INBOX/NV7.md → Phần B M101 đã làm W4 W5 W6 W8 (16-10, commit giữ, CHƯA đẩy). Còn chờ: W2 (NV1 báo 55), W3 (NV2 guide_export), W9 (NV2 sửa guide_book.gd fonts+icon), W10 (NV4 chốt tên Hội Chợ + mốc 57), W6 3 con (NV13). Không đẩy web khi chủ game chưa gõ "đồng ý" trong phiên NV7.**
+**Sau compact: đọc STATE → INBOX/NV7.md. M101 Phần B đã ĐẨY 16-10 (3c5330b): W4 W5 W6 W8 W10. Còn: W2 (NV1 báo 55), W3 + W9 (NV2 guide_export, guide_book.gd font+icon), UPD latest.json (đã đồng ý định dạng với NV1; đăng chỉ khi chủ game gõ "đồng ý phát bản X"). Không đẩy web khi chủ game chưa gõ "đồng ý" trong phiên NV7.**
 
 Cập nhật 2026-10-12 ~15:50.
 
