@@ -1,6 +1,6 @@
 # NV7 (Web và Cẩm Nang) - trạng thái, đọc trước tiên sau khi nén ngữ cảnh
 
-**Sau compact: đọc STATE → `cat-valley/docs/handoff/PHAN_CONG_0.4.1.md` mục NV7 → PHAN_TICH của NV7 (khối "NV7 → Leader (2026-10-15) — XONG M101 PHẦN A" ở INBOX/LEADER.md, W1-W11) → làm Phần B khi Leader đánh thức (sau 16-10 14:00). Không đẩy web khi chủ game chưa gõ "đồng ý" trong phiên NV7.**
+**Sau compact: đọc STATE → INBOX/NV7.md → Phần B M101 đã làm W4 W5 W6 W8 (16-10, commit giữ, CHƯA đẩy). Còn chờ: W2 (NV1 báo 55), W3 (NV2 guide_export), W9 (NV2 sửa guide_book.gd fonts+icon), W10 (NV4 chốt tên Hội Chợ + mốc 57), W6 3 con (NV13). Không đẩy web khi chủ game chưa gõ "đồng ý" trong phiên NV7.**
 
 Cập nhật 2026-10-12 ~15:50.
 

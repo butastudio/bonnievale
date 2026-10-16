@@ -94,6 +94,8 @@ const floorLines = (h.match(/ · hồi sinh sau 3 ngày · /g) || []).length;
 h = h.replace(/ · hồi sinh sau 3 ngày · /g, " · có mặt mỗi lần vào phòng · ");
 h = require("./boss_rules").fix(h);
 h = require("./ra_rules").fix(h);
+h = require("./boss_kinds").fix(h);
+h = require("./m101_rules").fix(h);
 console.log(`M51: ${fixed} text fixes, ${cards} boss cards, ${floorLines} floor Guardian lines`);
 
 // --- M55: NV4's story check against the canon (docs/handoff/INBOX/NV7.md) -------------------------------------
