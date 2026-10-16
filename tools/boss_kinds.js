@@ -1,8 +1,11 @@
 // Loại boss trên thẻ Cẩm Nang, theo balance/SO_BOSS.md cột Loại (NV13, kiểm 15-10 trên cây online 8e751c51b).
-// Không đoán: thẻ không có trong bảng (dog-drowned-miner, dog-arch-gargoyle, dog-old-auger) không có nhãn, chờ NV13 xếp loại.
+// 3 thẻ cuối bảng (NV13 14:19 16-10, SO_BOSS.md dòng 84-86): drowned_miner mini, arch_gargoyle truyện, old_auger mini.
 // Trial Dummy Elite là bù nhìn sân tập, không phải boss: ẩn khỏi Cẩm Nang.
 // Chạy riêng được: node tools/boss_kinds.js cam-nang.html (idempotent)
 const KIND = {
+  "b-enemy-dog-drowned-miner": "M",
+  "b-enemy-dog-arch-gargoyle": "T",
+  "b-enemy-dog-old-auger": "M",
   "b-enemy-boss-old-tusk": "T",
   "b-enemy-boss-gloomcoil": "T",
   "b-enemy-boss-mistmother": "T",
