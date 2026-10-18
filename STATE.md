@@ -1,6 +1,6 @@
 # NV7 (Web và Cẩm Nang) - trạng thái, đọc trước tiên sau khi nén ngữ cảnh
 
-**Sau compact: đọc STATE → INBOX/NV7.md. M101 Phần B đã ĐẨY 16-10 (3c5330b): W4 W5 W6 W8 W10. Còn: W2 (NV1 báo 55), W3 + W9 (NV2 guide_export, guide_book.gd font+icon), UPD latest.json (đã đồng ý định dạng với NV1; đăng chỉ khi chủ game gõ "đồng ý phát bản X"). Không đẩy web khi chủ game chưa gõ "đồng ý" trong phiên NV7.**
+**Sau compact: đọc STATE → INBOX/NV7.md. M101 Phần B đã ĐẨY 16-10 (3c5330b). M240 (R3-07) 18-10: bản nháp tin 0.4.1 trong config.js, commit 5662302, CHƯA đẩy, CHƯA deploy; chờ NV12 soát từng câu, chờ NV11 thêm 7 dòng vào support/SU_THAT_0.4.1.md rồi bổ sung (date đang là "ngày phát bản", đặt ngày thật khi phát). Còn: W2 (NV1 báo 55), W3 + W9 (NV2), UPD latest.json (đăng chỉ khi chủ game gõ "đồng ý phát bản X"). Không đẩy web khi chủ game chưa gõ "đồng ý" trong phiên NV7. Local chưa đẩy: eceff84, 5662302 và commit STATE này.**
 
 Cập nhật 2026-10-12 ~15:50.
 
