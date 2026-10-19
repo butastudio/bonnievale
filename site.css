@@ -115,6 +115,17 @@ p { margin: .5em 0; }
 .news .when { font: .8rem var(--f-pixel); color: var(--rim-lo); }
 .news h4 { font: 400 1rem var(--f-pixel); margin: 12px 0 4px; }
 .news ul { margin: 0; padding-left: 1.2em; color: var(--ink-soft); }
+.news-intro { margin: 8px 0 14px; }
+.news-hl { background: rgba(255, 200, 80, .12); box-shadow: 0 0 0 3px var(--outline); padding: 10px 16px 12px; margin-bottom: 18px; }
+.news-hl h4 { margin-top: 0; }
+.news-hl li { margin: 5px 0; color: var(--ink); }
+.news-grid { column-count: 2; column-gap: 16px; }
+.news-sec { break-inside: avoid; background: rgba(255, 255, 255, .04); box-shadow: 0 0 0 2px var(--outline); padding: 4px 14px 10px; margin: 0 0 16px; }
+.news-sec h4 { display: flex; align-items: center; gap: 10px; margin: 10px 0 6px; }
+.news-sec h4 img, .news-hl h4 img { width: 36px; height: 36px; image-rendering: pixelated; flex: none; }
+.news-hl h4 { display: flex; align-items: center; gap: 10px; }
+.news-sec li { margin: 5px 0; font-size: .95rem; }
+@media (max-width: 760px) { .news-grid { column-count: 1; } .news { padding: 16px 14px; } }
 .empty { color: var(--ink-soft); }
 
 /* text pages (terms, privacy) */

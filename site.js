@@ -30,7 +30,11 @@
   if (news) {
     const list = S.news || [];
     const block = (h, items) => items && items.length ? `<h4>${h}</h4><ul>${items.map(i => `<li>${esc(i)}</li>`).join("")}</ul>` : "";
-    news.innerHTML = list.length ? list.map(n => `<article class="news frame"><div class="when">${esc(n.date)} · Bản ${esc(n.version)}</div>
+    const rich = n => `<article class="news news-rich frame"><div class="when">${esc(n.date)} · Bản ${esc(n.version)}</div>
+        ${n.intro ? `<p class="news-intro">${esc(n.intro)}</p>` : ""}
+        ${n.highlights && n.highlights.length ? `<div class="news-hl"><h4><img src="img/icons/party.png" alt="" width="32" height="32">Nổi bật</h4><ul>${n.highlights.map(i => `<li>${esc(i)}</li>`).join("")}</ul></div>` : ""}
+        <div class="news-grid">${n.sections.map(c => `<section class="news-sec"><h4><img src="${esc(c.icon)}" alt="" width="32" height="32">${esc(c.title)}</h4><ul>${c.items.map(i => `<li>${esc(i)}</li>`).join("")}</ul></section>`).join("")}</div></article>`;
+    news.innerHTML = list.length ? list.map(n => n.sections ? rich(n) : `<article class="news frame"><div class="when">${esc(n.date)} · Bản ${esc(n.version)}</div>
         ${n.intro ? `<p>${esc(n.intro)}</p>` : ""}${block("Đã sửa", n.fixed)}${block("Đã đổi", n.changed)}${block("Vẫn đang sửa", n.todo)}</article>`).join("")
       : `<p class="empty">Ghi chú của bản tester đầu tiên sẽ có ở đây khi bản mở.</p>`;
   }
