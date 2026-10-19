@@ -4,8 +4,7 @@
 function fix(h) {
   let n = 0, miss = [];
   const rep = (tag, a, b) => { if (h.includes(b)) return; if (!h.includes(a)) { miss.push(tag); return; } h = h.replace(a, b); n++; };
-  // 5: boss hang chỉ hiện với người đã mở hang (đã có trong đoạn Bãi săn); lưu game sau khi mở hang (remote_enemy.gd 70-88)
-  rep("5", "Bảng Thợ Săn cho biết boss đã dậy chưa.", "Bảng Thợ Săn cho biết boss đã dậy chưa. Mở hang xong, nên lưu game (ngủ, hoặc Esc → Lưu) rồi mới vào hang.");
+  // 5: bỏ câu "Mở hang xong, nên lưu game" (R3-04, 19-10): cam-nang.html đã sửa tay, không thêm lại
   // 6: ai trao nhánh Lv 10 (data/skillbooks/*.json home; skill_book.gd 26-30; bonnievale.lua 2065-2069)
   { const i = h.indexOf("<p><b>Tổ đội:</b>"), add = "\n  <p><b>Chọn nhánh (Lv 10):</b> mỗi lớp chỉ chọn ở một người: Chiến binh, Trung sĩ Ironjaw (Sảnh Huấn Luyện, Barkridge); Cung thủ, Sư phụ Fenna (Meowmont); Pháp sư, Bracken, Sứ giả xứ Gấu; Sát thủ, Inkling, Sứ giả xứ Cáo (hai sứ giả ở Hội Chợ Quả Sồi). Phải tới tận chỗ người đó mới chọn được.</p>";
     if (h.includes("<b>Chọn nhánh (Lv 10):</b>")) {} else if (i < 0) miss.push("6"); else { const j = h.indexOf("</p>", i) + 4; h = h.slice(0, j) + add + h.slice(j); n++; } }
