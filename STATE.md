@@ -1,6 +1,6 @@
 # NV7 (Web và Cẩm Nang) - trạng thái, đọc trước tiên sau khi nén ngữ cảnh
 
-**Sau compact: đọc STATE → INBOX/NV7.md. M101 Phần B đã ĐẨY 16-10 (3c5330b). M240 (R3-07) 18-10: bản nháp tin 0.4.1 trong config.js, commit 5662302, CHƯA đẩy, CHƯA deploy; chờ NV12 soát từng câu, chờ NV11 thêm 7 dòng vào support/SU_THAT_0.4.1.md rồi bổ sung (date đang là "ngày phát bản", đặt ngày thật khi phát). Còn: W2 (NV1 báo 55), W3 + W9 (NV2), UPD latest.json (đăng chỉ khi chủ game gõ "đồng ý phát bản X"). Không đẩy web khi chủ game chưa gõ "đồng ý" trong phiên NV7. Local chưa đẩy: eceff84, 5662302 và commit STATE này.**
+**Sau compact: đọc STATE → INBOX/NV7.md. Chủ game đã gõ "đồng ý" (19-10) cho R3-07, nhưng CHƯA đẩy: chờ A10 (máy chủ deploy) + Release v0.4.1. Tin 0.4.1 trong config.js xong nội dung (10 sửa/16 đổi/5 đang sửa; commit 5662302 + 18546e2), date còn "ngày phát bản": đặt ngày thật lúc đẩy, rồi kiểm Pages build. R3-03: tools/release/latest_0.4.1.json (d18c94d, sha/cỡ khớp zip, chưa tải lên). KẾ: bước 1 A10 = tải Release v0.4.1 (zip + latest.json đổi tên) CHỈ khi Leader báo chạy lại VÀ chủ game tự gõ "đồng ý phát bản 0.4.1" trong phiên NV7; lệnh soạn sẵn trong INBOX/leader.md. Còn: W2, W3, W9. Local chưa đẩy: eceff84, 5662302, 5cc8829, d18c94d, 18546e2 và commit STATE này.**
 
 Cập nhật 2026-10-12 ~15:50.
 
