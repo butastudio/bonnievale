@@ -198,6 +198,21 @@ h = h.replace("</head>", REALM_CSS + "\n</head>");
 h = h.replace(/<\/body>\s*<\/html>\s*$/, REALM_JS + "\n</body>\n</html>\n");
 console.log(`M53: realm tags cat ${tagged.cat}, dog ${tagged.dog}; realm bar ${h.includes('id="realmbar"') ? "in" : "MISSING"}`);
 
+// R3-08 (NV12 soát, 19-10): (1) bỏ vế "Mùa này hết lúc …" (đổi theo giờ dựng, 49 chỗ);
+// (2) Gã Khổng Lồ Đất Rạn chưa gặp được ở 0.4.1 (không ai đặt hunt.colossus.open): gắn nhãn "Sắp có (Vòng 2)".
+{
+  const season = /\s*Mùa này hết lúc [^<]*?\.(?=<|\s)/g;
+  const nSeason = (h.match(season) || []).length;
+  h = h.replace(season, "");
+  const SOON = '<span class="badge b-kind">Sắp có (Vòng 2)</span>';
+  const COL = "Gã Khổng Lồ Đất Rạn";
+  const a = `<b class="foe">${COL}</b>`, b = `<h4>${COL} <span class="badge b-kind">Boss săn</span>`;
+  let nSoon = 0;
+  if (h.includes(a)) { h = h.split(a).join(a + " " + SOON); nSoon++; }
+  if (h.includes(b)) { h = h.split(b).join(b + " " + SOON); nSoon++; }
+  console.log(`R3-08: removed "Mùa này hết lúc" ${nSeason}, "Sắp có (Vòng 2)" labels ${nSoon}/2`);
+}
+
 const out = path.join(__dirname, "..", "cam-nang.html");
 fs.writeFileSync(out, h);
 const left = (h.match(/<article class="entry/g) || []).length;
