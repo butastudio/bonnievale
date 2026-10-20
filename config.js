@@ -1,9 +1,9 @@
 // Cấu hình trang web Bonnievale Online - sửa file này khi có bản mới, link Discord, email liên hệ.
 window.SITE = {
   // Bản tester hiện tại. Để downloadUrl rỗng ("") thì nút tải hiện "Sắp mở".
-  version: "0.4.1",
-  released: "19/10/2026",
-  downloadUrl: "https://github.com/butastudio/bonnievale/releases/download/v0.4.1/Bonnievale_Tester_0.4.1.zip",
+  version: "0.4.1.1",
+  released: "20/10/2026",
+  downloadUrl: "https://github.com/butastudio/bonnievale/releases/download/v0.4.1.1/Bonnievale_Tester_0.4.1.1.zip",
   downloadSize: "203 MB",
 
   // Link mời Discord của chủ game. Rỗng thì nút Join Discord ẩn.
@@ -27,6 +27,33 @@ window.SITE = {
   // Ghi chú phiên bản, bản mới nhất ở trên cùng (giọng ấm, ngắn, ghi điều người chơi thấy).
   // { version, date, intro, fixed: [], changed: [], todo: [] }
   news: [
+    { version: "0.4.1.1", date: "20/10/2026", intro: "Bản vá và bổ sung bạn bè. Tài khoản và bản lưu giữ nguyên. Mở game, nếu có bản mới thì bấm nút Cập nhật ngay trong game.",
+      highlights: [
+        "Bạn bè đầy đủ: cửa sổ Bạn bè riêng, hộp mời Đồng ý / Từ chối, thấy bạn đang chơi hay vắng và ở đâu, chat /f.",
+        "Đổi mật khẩu ngay trong Cài đặt.",
+        "HUD và mọi cửa sổ vừa khung từ 1024x768 tới 2560x1440, mọi tỉ lệ màn.",
+        "Sửa kẹt truyện ở cửa Xưởng Đúc (Rivet)."
+      ],
+      sections: [
+        { icon: "key", title: "Mới", items: [
+          "Nút Nhắn riêng / Mời vào tổ / Viết thư trong cửa sổ Bạn bè; báo khi bạn vào/ra game (tắt được).",
+          "Dân làng (tim NPC) tách riêng khỏi Bạn bè (người chơi).",
+          "Biển chỉ dẫn mới: nhỏ gọn, chữ pixel tiếng Việt rõ dấu, đặt ở mép đường." ] },
+        { icon: "key", title: "Giao diện", items: [
+          "Túi đồ gọn hơn; đồ Cash nằm trong thẻ Cash riêng, mặc thẳng từ đó.",
+          "Cửa hàng: cột số lượng / giá / nút thẳng hàng, không tràn chữ.",
+          "Bong bóng chat tự xuống dòng; biển tên nhà không tràn; tên nhà trên bản đồ nhỏ không che biểu tượng.",
+          "Nút Auto Q rõ hơn; Cài đặt cuộn được và hiện đúng độ phân giải." ] },
+        { icon: "fix", title: "Sửa lỗi", items: [
+          "Nông sản chín nằm trên vòi tưới / rương / vật đặt nay thu hoạch được.",
+          "Hồ ở Mỏ Bậc Đồng đã có nước, câu cá được.",
+          "Nhiệm vụ mang cuốc cho Lark: cuốc tốt hơn cuốc sắt cũng được nhận.",
+          "Ngất không còn bỏ sót đồ ở các ô túi mua thêm.",
+          "4 người ở Hội Chợ có quà thích thật; thêm bản Việt cho các thẻ Thích.",
+          "Gợi ý tìm huy hiệu Corrick chỉ đúng nơi; thêm các câu còn thiếu tiếng Việt.",
+          "Hình nhân vật không còn kẹt trên bản đồ sau khi người đó thoát.",
+          "Death Mark của Sát thủ không còn hạ boss tức thì." ] }
+      ], todo: [] },
     // M240 / R3-07 (QD-T104): NHÁP, chưa đăng. Câu chữ lấy từ support/SU_THAT_0.4.1.md mục 1. Đặt lại date đúng ngày phát bản trước khi deploy.
     { version: "0.4.1", date: "19/10/2026", intro: "Bản cập nhật lớn. Tài khoản và bản lưu giữ nguyên. Mở game, nếu có bản mới thì bấm nút Cập nhật ngay trong game.",
       highlights: [
