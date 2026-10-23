@@ -436,7 +436,7 @@ html.lb-open { overflow: hidden; }
 .bxh-row.r1 .bxh-rank { background: var(--lantern); }
 .bxh-row.r2 .bxh-rank { background: #d9d4c7; }
 .bxh-row.r3 .bxh-rank { background: var(--rim); }
-.bxh-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 700; }
+.bxh-name { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 700; }
 .bxh-name.anon { color: var(--ink-soft); font-weight: 500; font-style: italic; }
 .bxh-val { font: .9rem var(--f-pixel); color: var(--leaf); white-space: nowrap; }
 .bxh-upd { font-size: .8rem; color: var(--ink-soft); margin: 12px 0 0; }
@@ -444,3 +444,5 @@ html.lb-open { overflow: hidden; }
   .bxh-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .bxh-row { grid-template-columns: 36px minmax(0, 1fr) auto; gap: 8px; }
 }
+.bxh-who { display: flex; flex-direction: column; min-width: 0; }
+.bxh-realm { font-size: .75rem; color: var(--ink-soft); line-height: 1.2; }
