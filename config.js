@@ -2,7 +2,7 @@
 window.SITE = {
   // Bản tester hiện tại. Để downloadUrl rỗng ("") thì nút tải hiện "Sắp mở".
   version: "0.4.1.1",
-  released: "20/10/2026",
+  released: "21/10/2026",
   downloadUrl: "https://github.com/butastudio/bonnievale/releases/download/v0.4.1.1/Bonnievale_Tester_0.4.1.1.zip",
   downloadSize: "203 MB",
 
@@ -27,7 +27,7 @@ window.SITE = {
   // Ghi chú phiên bản, bản mới nhất ở trên cùng (giọng ấm, ngắn, ghi điều người chơi thấy).
   // { version, date, intro, fixed: [], changed: [], todo: [] }
   news: [
-    { version: "0.4.1.1", date: "20/10/2026", intro: "Bản vá và bổ sung bạn bè. Tài khoản và bản lưu giữ nguyên. Mở game, nếu có bản mới thì bấm nút Cập nhật ngay trong game.",
+    { version: "0.4.1.1", date: "21/10/2026", intro: "Bản vá và bổ sung bạn bè. Tài khoản và bản lưu giữ nguyên. Mở game, nếu có bản mới thì bấm nút Cập nhật ngay trong game.",
       highlights: [
         "Bạn bè đầy đủ: cửa sổ Bạn bè riêng, hộp mời Đồng ý / Từ chối, thấy bạn đang chơi hay vắng và ở đâu, chat /f.",
         "Đổi mật khẩu ngay trong Cài đặt.",
