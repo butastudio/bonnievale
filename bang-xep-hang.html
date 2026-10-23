@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bảng xếp hạng · Bonnievale Online</title>
+<meta name="description" content="Bảng xếp hạng Bonnievale Online: top cấp, top nhiệm vụ, top giờ chơi, top nông trại.">
+<link rel="icon" href="img/icon.png">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="./" aria-label="Bonnievale Online - trang chủ"><img src="img/logo_small.png" alt="Bonnievale" width="150" height="49"></a>
+  <nav class="menu" aria-label="Mục chính"><a href="./">Trang chủ</a><a href="bang-xep-hang.html" aria-current="page">Bảng xếp hạng</a><a href="cam-nang.html">Cẩm Nang</a></nav>
+</header>
+<main class="bxh wrap">
+  <h1 class="title">Bảng xếp hạng</h1>
+  <p class="lead">Những người chơi nổi bật của Bonnievale. Bảng tự làm mới vài phút một lần.</p>
+  <p class="bxh-demo" id="bxh-demo" hidden>Đang hiển thị dữ liệu mẫu, chưa phải người chơi thật.</p>
+
+  <div class="bxh-tabs" role="tablist" aria-label="Chọn bảng">
+    <button type="button" role="tab" class="bxh-tab" data-k="level" aria-selected="true">Top cấp</button>
+    <button type="button" role="tab" class="bxh-tab" data-k="quests" aria-selected="false">Top nhiệm vụ</button>
+    <button type="button" role="tab" class="bxh-tab" data-k="hours" aria-selected="false">Top giờ chơi</button>
+    <button type="button" role="tab" class="bxh-tab" data-k="harvest" aria-selected="false">Top nông trại</button>
+  </div>
+
+  <section class="bxh-card frame" aria-live="polite">
+    <h2 id="bxh-title" class="bxh-h"></h2>
+    <p id="bxh-sub" class="bxh-sub"></p>
+    <ol id="bxh-list" class="bxh-list"></ol>
+    <p id="bxh-empty" class="bxh-sub" hidden>Chưa có ai trên bảng này.</p>
+    <p class="bxh-upd">Cập nhật: <span id="bxh-time">—</span></p>
+  </section>
+</main>
+<footer class="foot"><div class="wrap"><p class="foot-links"><a href="./">Trang chủ</a> · <a href="dieu-khoan.html">Điều khoản</a> · <a href="quyen-rieng-tu.html">Quyền riêng tư</a></p><p>© 2026 BUTA Studio.</p></div></footer>
+<script src="config.js"></script>
+<script src="site.js"></script>
+<script src="bxh.js"></script>
+</body>
+</html>

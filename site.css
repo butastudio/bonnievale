@@ -418,3 +418,29 @@ html.lb-open { overflow: hidden; }
   .lb-strip button { width: 84px; }
 }
 .feat-peek::after { content: "Bấm để xem lớn"; position: absolute; left: 0; right: 0; bottom: 0; padding: 6px 8px; font: .8rem var(--f-pixel); color: var(--lantern); background: linear-gradient(transparent, rgba(10, 8, 6, .9)); text-align: center; }
+
+/* bảng xếp hạng */
+.bxh { padding-block: 40px 64px; max-width: 760px; }
+.bxh-demo { background: var(--lantern); color: #2a1a10; padding: 8px 12px; font: .85rem var(--f-pixel); box-shadow: 0 0 0 3px var(--outline); margin: 0 0 18px; }
+.bxh-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-bottom: 22px; }
+.bxh-tab { font: .9rem var(--f-pixel); color: var(--ink); background: var(--ground-2); border: 0; cursor: pointer; padding: 11px 6px; box-shadow: 0 0 0 3px var(--outline); }
+.bxh-tab:hover { background: var(--rim-hi); color: #2a1a10; }
+.bxh-tab[aria-selected="true"] { background: var(--rim); color: #2a1a10; box-shadow: 0 0 0 3px var(--outline), inset 0 4px 0 var(--rim-hi), inset 0 -4px 0 var(--rim-lo); }
+.bxh-card { padding: 18px 16px 12px; }
+.bxh-h { font-size: 1.3rem; margin: 0; }
+.bxh-sub { color: var(--ink-soft); margin: 2px 0 12px; }
+.bxh-list { list-style: none; margin: 0; padding: 0; }
+.bxh-row { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 9px 8px; border-top: 2px dashed var(--ground-2); }
+.bxh-rank { font: 1.05rem var(--f-pixel); text-align: center; color: var(--ink-soft); }
+.bxh-row.r1 .bxh-rank, .bxh-row.r2 .bxh-rank, .bxh-row.r3 .bxh-rank { color: #2a1a10; padding: 4px 0; box-shadow: 0 0 0 2px var(--outline); }
+.bxh-row.r1 .bxh-rank { background: var(--lantern); }
+.bxh-row.r2 .bxh-rank { background: #d9d4c7; }
+.bxh-row.r3 .bxh-rank { background: var(--rim); }
+.bxh-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 700; }
+.bxh-name.anon { color: var(--ink-soft); font-weight: 500; font-style: italic; }
+.bxh-val { font: .9rem var(--f-pixel); color: var(--leaf); white-space: nowrap; }
+.bxh-upd { font-size: .8rem; color: var(--ink-soft); margin: 12px 0 0; }
+@media (max-width: 520px) {
+  .bxh-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bxh-row { grid-template-columns: 36px minmax(0, 1fr) auto; gap: 8px; }
+}
