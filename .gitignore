@@ -1,1 +1,5 @@
 *.zip
+# G0-331 (chủ game #187/#188): ghi chú và công cụ nội bộ không đưa lên kho công khai; bản lưu ở cat-valley docs/handoff/web_noi_bo
+STATE.md
+TEN_MIEN.md
+tools/
